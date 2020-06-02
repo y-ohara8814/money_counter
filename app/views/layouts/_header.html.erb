@@ -1,9 +1,12 @@
 <header>
  <div class="header-logo">
-    <%= link_to("Rails beginner", "/") %>
+    <%= link_to("Money Counter", "/") %>
   </div>
   <ul>
     <% if user_signed_in? %>
+      <li>
+        <%= current_user.name %>さん(ユーザーID：<%= current_user.id%>)
+      </li>
       <li>
         <%= link_to("質問作成", "/groups/new") %>
       </li>

@@ -1,0 +1,7 @@
+<h2>ユーザーの詳細ページ</h2>
+<%= @user.name %>
+
+<h2>所属しているグループ</h2>
+<%= @groups.each do |group| %>
+<%= group.name %>
+<% end %>

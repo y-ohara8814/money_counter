@@ -1,0 +1,24 @@
+<%= form_with(model: @group, url: groups_new_path, local: true) do |f| %>
+  <div>
+    <p>グループ名</p>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <p>所属するメンバー</p>
+  <%# = f.fields_for :group_user do |ff| %>
+     <%# @userをループ処理でnameを取り出して、ラベルに表示する処理を入れたい %>
+     <%# @users.each do |user| %>
+  　 <%# = ff.check_box :user_id,{},"1",nil%>
+    
+  　 <%# = ff.label :name, "ユーザー１" %>
+    <%# end %>
+   <%# end%>
+   <div class="field">
+     <%#= f.label :names %><br>
+    <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name ) do |t|  %>
+      <% t.label { t.check_box + t.text } %>
+    <% end %> 
+  </div>
+   <br>
+  <%= f.submit %>
+<% end %>

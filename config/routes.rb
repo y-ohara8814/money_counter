@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get "/groups/new", to: "groups#new"
   post "/groups/new", to: "groups#create"
+
+  get "/groups/:id", to: "groups#show"
 end

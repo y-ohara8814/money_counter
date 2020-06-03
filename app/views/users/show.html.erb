@@ -2,6 +2,14 @@
 <%= @user.name %>
 
 <h2>所属しているグループ</h2>
-<%= @groups.each do |group| %>
+<% @user.group_users.each do |group| %>
+<%= group.group.name %>
+    
+<% end %>
+<% @group.group_users.each do |belongs_user|%>
+    <%= belongs_user.user.name %>
+<% end %>
+<br>
+<% @groups.each do |group| %>
 <%= group.name %>
 <% end %>

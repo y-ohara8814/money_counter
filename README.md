@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+グループで、月ごとに使用できる金額を設定し、日々の使用金額を入力して残高を管理するサイト。
+・ユーザーログイン機能
+・グループ作成機能
+・ユーザーがグループに所属する機能（１対多）
+・グループで金額を設定する機能
+・グループに所属するユーザーが日々の使用金額を入力する機能
 
-Things you may want to cover:
+* Ruby version　２．６．０
 
-* Ruby version
+* Rails version 5.2.4.3
 
-* System dependencies
+* Database development:SQlite
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

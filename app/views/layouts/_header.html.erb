@@ -8,7 +8,7 @@
         <%= current_user.name %>さん(ユーザーID：<%= current_user.id%>)
       </li>
       <li>
-        <%= link_to("質問作成", "/groups/new") %>
+        <%= link_to("マイページ", "/users/#{current_user.id}") %>
       </li>
       <li>
         <%= link_to("ログアウト", "/users/sign_out", method: :delete, data: {confirm: "本当にログアウトしますか？"}) %>

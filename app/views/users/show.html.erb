@@ -1,15 +1,32 @@
 <h2>ユーザーの詳細ページ</h2>
-<%= @user.name %>
+<%= @user.name %>さん
 
-<h2>所属しているグループ</h2>
-<% @user.group_users.each do |group| %>
-<%= group.group.name %>
+<table border='1' class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>所属しているグループ</th>
+            <th>グループのメンバー</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @groups.each do |group|%>
+        <tr>
+            <td><%= group.name %></td>
+            <% group.users.each do |user| %>
+            <td><%= user.name %></td>
+            <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+
+
+
+
+</table>
+
+    <br>
     
-<% end %>
-<% @group.group_users.each do |belongs_user|%>
-    <%= belongs_user.user.name %>
-<% end %>
-<br>
-<% @groups.each do |group| %>
-<%= group.name %>
-<% end %>
+        <br>
+    
+
+

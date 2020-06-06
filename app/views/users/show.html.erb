@@ -11,7 +11,7 @@
     <tbody>
     <% @groups.each do |group|%>
         <tr>
-            <td><%= link_to(group.name, "/groups/#{group.id}") %></td>
+            <td><%= link_to(group.name, "/groups/#{group.id}/plan") %></td>
             <% group.users.each do |user| %>
             <td><%= user.name %></td>
             <% end %>

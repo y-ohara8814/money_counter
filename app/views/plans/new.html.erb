@@ -1,0 +1,25 @@
+<h1>プランの新規登録</h1>
+
+<%= form_with(model: @plan, local: true) do |f| %>
+        
+  <div>
+    <%= f.label :title, "設定金額（半角数字で入力してください)" %>
+    <% if @plan.errors.include?(:title) %>
+     <p style="color: red;"><%= @plan.errors.full_messages_for(:title).first %>
+　   <% end %>
+    <br>
+    <%= f.text_field :money_amount %>円
+  </div>
+  <div>
+    <%= f.label :title, "対象の年" %>
+    <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], include_blank: "選択して下さい" %>
+    <br>
+    <%= f.label :title, "対象の月" %>
+    <%= f.select :month, [["1", "1"], ["2", "2"]], include_blank: "選択して下さい" %>
+    
+    
+  </div>
+  <br>
+  <%#= f.submit "登録する", onclick="check()"%>
+  <input type="submit" value="登録する" onclick="check()">
+<% end %>

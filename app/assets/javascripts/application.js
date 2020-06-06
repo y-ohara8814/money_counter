@@ -13,3 +13,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function check(){
+    // alert("test");
+    var money_amount = plan[money_amount].value;
+    alert(money_amount);
+}

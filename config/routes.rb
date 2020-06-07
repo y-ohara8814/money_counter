@@ -6,14 +6,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "groups#index"
 
-  resources :groups
+  resources :groups do
+    resources :plans
+  end
   # get "/groups/new", to: "groups#new"
   # post "/groups", to: "groups#create"
 
   # get "/groups/:id", to: "groups#show"
   #プラン表示
-  get "/groups/:id/plan", to: "plans#index"
+  # get "/groups/:id/plan", to: "plans#index"
   #プラン作成
-  resources :plans
-  get "/groups/:id/plan/new", to: "plans#new"
+  # resources :plans　
+  # get "/groups/:id/plan/new", to: "plans#new"
 end

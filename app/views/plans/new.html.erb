@@ -1,7 +1,7 @@
 <h1>プランの新規登録</h1>
 
-<%= form_with(model: @plans, local: true, id: 'new_plan') do |f| %>
-        
+<%= form_with(model: @plan, local: true, id: 'new_plan', url: group_plans_path) do |f| %>
+    <%= f.hidden_field :group_id, :value => @group.id %>
   <div>
     <%= f.label :title, "設定金額（半角数字で入力してください)" %>
     <% if @plan.errors.include?(:title) %>

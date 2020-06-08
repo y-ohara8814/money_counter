@@ -1,1 +1,17 @@
 <p><%= @group_name %>の月次プラン</p>
+<% if @plan.present? %>
+<p><%= @plan.year %>年<%= @plan.month %>月の</p>
+<% end %>
+<p>目標金額</p>
+<% if @plan.present? %>
+<p id='money_amount'><%= @plan.money_amount%></p>
+<% end %>
+<p>利用履歴</p>
+
+
+
+<p>利用金額を入力する</p>
+
+
+
+<%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}") %>

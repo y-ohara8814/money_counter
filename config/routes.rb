@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   root to: "groups#index"
 
   resources :groups do
-    resources :plans
+    resources :plans do
+      member do
+        post :confirm
+      end
+    end
+    
   end
   # get "/groups/new", to: "groups#new"
   # post "/groups", to: "groups#create"

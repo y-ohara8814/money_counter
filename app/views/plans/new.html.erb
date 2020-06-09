@@ -1,6 +1,6 @@
 <h1>プランの新規登録</h1>
 
-<%= form_with(model: @plan, local: true, id: 'new_plan', url: group_plans_path) do |f| %>
+<%= form_with(model:@plan, local: true, id: 'new_plan', url: confirm_group_plans_path ) do |f| %>
     <%= f.hidden_field :group_id, :value => @group.id %>
   <div>
     <%= f.label :title, "設定金額（半角数字で入力してください)" %>
@@ -30,6 +30,5 @@
                         {include_blank: "選択して下さい"}, {id: 'month'} %>月
   </div>
   <br>
-  <%= f.submit "登録する", data: {confirm: "本当に登録しますか？"}%>
-  <input type="submit" value="登録する">
+  <%= f.submit "確認画面へ"%>
 <% end %>

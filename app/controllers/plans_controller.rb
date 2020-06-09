@@ -6,7 +6,7 @@ class PlansController < ApplicationController
     end
     #プラン登録画面描画用
     def new
-        #確認画面から戻ってきた場合
+        #確認画面から戻ってきた場合??
 
         #初回アクセスの場合
         @plan = Plan.new
@@ -14,8 +14,15 @@ class PlansController < ApplicationController
     end
 
     def confirm
-
+        @plan = Plan.new(plan_params)
+        return if @plan.valid?
+        render :new
     end
+
+    def back
+        render :new
+    end
+
     #プラン登録画面からパラメータがPOSTされてきたときの処理
     def create
         @group = Group.find(params[:group_id])

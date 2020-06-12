@@ -1,0 +1,21 @@
+<h1>プラン作成内容確認</h1>
+<p><%= @plan.year %>年<%= @plan.month %>月の</p>
+<p>目標金額は、</p>
+<p><%= @plan.money_amount %></p>
+
+<%= form_with(model: @plan, local: true, url: back_group_plans_path ) do |f| %>
+    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+    <%= f.hidden_field :year, :value => @plan.year %>
+    <%= f.hidden_field :month, :value => @plan.month %>
+
+    <%= f.submit "入力画面へ戻る" %>
+<% end%>
+
+<%= form_with(model: @plan, local: true, url: create_group_plans_path ) do |f| %>
+    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+    <%= f.hidden_field :year, :value => @plan.year %>
+    <%= f.hidden_field :month, :value => @plan.month %>
+    <%= f.hidden_field :group_id, :value => @group.id %>
+
+    <%= f.submit "登録する" %>
+<% end%>

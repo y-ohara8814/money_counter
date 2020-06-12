@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function check(){
+    //プラン新規作成画面の、設定金額の値を取得
+    var money_amount = document.getElementById("money_amount").value;
+    //対象の年を取得
+    var year = document.getElementById("year");
+    var year_value = year.value;
+    //対象の月を取得
+    var month = document.getElementById("month");
+    var month_value = month.value;
+    //モーダルに表示
+    alert(year_value);
+}
+

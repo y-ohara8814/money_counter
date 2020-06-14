@@ -1,5 +1,6 @@
 class Plan < ApplicationRecord
     belongs_to :group, optional: true
+    has_many :usages, foreign_key: "plan_id"
 
     validates :money_amount, presence: true
     validates :year, presence: true

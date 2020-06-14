@@ -2,8 +2,10 @@ class PlansController < ApplicationController
     before_action :plan_params, only:[:create,:confirm,:back]
     #グループIDに紐づくプランを表示
     def index
+        @group = Group.find_by(id: params[:group_id])
         @group_name = Group.find_by(id: params[:group_id]).name
         @plan = Plan.find_by(group_id: params[:group_id])
+        @usage = Usage.new
     end
     #プラン登録画面描画用
     def new

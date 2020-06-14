@@ -32,8 +32,14 @@
 
 <hr>
 <p>利用金額を入力する</p>
-<%= form_with(model:@plan, local: true, id: 'new_plan', url: confirm_group_plans_path ) do |f| %>
-
+<%= form_with(model:@usage, local: true, id: 'usage', url: create_usage_path ) do |f| %>
+    <%= f.hidden_field :plan_id, :value => @plan.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div>
+        <% if @usage.errors.include?(:title) %>
+         <p style="color: red;"><%= @usage.errors.full_messages_for(:title).first %>
+　       <% end %>
+    </div>
 <div>
     <%= f.label :date, "使った日" %>
     <%= f.date_field :date, id: "date" %>

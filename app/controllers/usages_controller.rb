@@ -1,5 +1,4 @@
 class UsagesController < ApplicationController
-    def create
         def create
             @group = Group.find(params[:group_id])
             @usage = Usage.new(usage_params)
@@ -11,7 +10,6 @@ class UsagesController < ApplicationController
                 render("/groups/#{params[:group_id]}/plans")
             end
         end
-    end
 
     private 
         def usage_params

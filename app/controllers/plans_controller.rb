@@ -1,10 +1,13 @@
 class PlansController < ApplicationController
+    require "pry"
     before_action :plan_params, only:[:create,:confirm,:back]
     #グループIDに紐づくプランを表示
     def index
         @group = Group.find_by(id: params[:group_id])
         @group_name = Group.find_by(id: params[:group_id]).name
         @plan = Plan.find_by(group_id: params[:group_id])
+        @usages = Usage.where(plan_id: @plan.id)
+        @usage_user = User.find_by(id: @usages.user_id)
         @usage = Usage.new
     end
     #プラン登録画面描画用

@@ -4,7 +4,7 @@
 <% end %>
 <p>目標金額</p>
 <% if @plan.present? %>
-<p id='money_amount'><%= @plan.money_amount%></p>
+<b><p id='money_amount'><%= @plan.money_amount%></p></b>
 <% end %>
 <p>利用履歴</p>
 <table border='1' class="table">
@@ -18,14 +18,15 @@
     </thead>
     <tbody>
     <% @usages.each do |usage|%>
-        <td><%= usage.date %></td>
-        <td><%= usage.spending_money %></td>
-        <td><%= usage.purpose %></td>
-        <td><%= @usage_user.name %></td>
+        <tr>
+            <td><%= usage.date  %></td>
+            <td><%= usage.spending_money  %></td>
+            <td><%= usage.purpose  %></td>
+            <td><%= usage.user.name  %></td>
+        </tr>
     <% end %>
     </tbody>
 </table>
-
 <hr>
 <p>利用金額を入力する</p>
 <%= form_with(model:@usage, local: true, id: 'usage', url: create_usage_path ) do |f| %>
@@ -46,7 +47,27 @@
 </div>
 <div>
     <%= f.label :purpose, "用途" %>
-    <%= f.text_field :purpose, id: "purpose" %>
+</div>
+<label>
+<%= f.radio_button :purpose1, :male, {style: "width: 40px"} %>
+
+  <%= f.label :purpose1, "コンビニ", {value: :male, style: "display: inline-block;"} %>
+</label>
+<div>
+<%= f.radio_button :gender, :male, {style: "width: 40px"} %>
+
+  <%= f.label :gender, "スーパー", {value: :male, style: "display: inline-block;"} %>
+</div>
+<div>
+<%= f.radio_button :gender, :male, {style: "width: 40px"} %>
+
+  <%= f.label :gender, "外食", {value: :male, style: "display: inline-block;"} %>
+</div>
+<div>
+<%= f.radio_button :gender, :male, {style: "width: 40px"} %>
+
+  <%= f.label :gender, "その他", {value: :male, style: "display: inline-block;"} %>
+  <%= f.text_field :spending_money, id: "spending_money" %>
 </div>
 <%= f.submit "利用金額登録", data: {confirm: "登録してよろしいですか？"}%>
 <% end %>

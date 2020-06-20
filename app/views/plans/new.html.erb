@@ -30,5 +30,19 @@
                         {include_blank: "選択して下さい"}, {id: 'month'} %>月
   </div>
   <br>
+  <%= f.label :title, "用途の選択肢設定" %>
+  <div>
+  <%= f.label :title, "選択肢１" %>
+  <%= f.text_field :choice1, id: "choice1" %>
+  </div>
+  <div>
+  <%= f.label :title, "選択肢２" %>
+  <%= f.text_field :choice2, id: "choice2" %>
+  </div>
+  <div>
+  <%= f.label :title, "選択肢３" %>
+  <%= f.text_field :choice3, id: "choice3" %>
+  </div>
+  <br>
   <%= f.submit "確認画面へ"%>
 <% end %>

@@ -45,6 +45,6 @@ class PlansController < ApplicationController
 
     private 
         def plan_params
-            params.require(:plan).permit(:money_amount, :year, :month, :group_id)
+            params.require(:plan).permit(:money_amount, :year, :month, :choice1, :choice2, :choice3, :group_id)
         end
 end

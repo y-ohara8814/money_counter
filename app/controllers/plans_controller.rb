@@ -34,7 +34,7 @@ class PlansController < ApplicationController
     def create
         @group = Group.find(params[:group_id])
         @plan = Plan.new(plan_params)
-        if @plan.save!
+        if @plan.save
             flash[:notice] = "プランを作成しました"
             redirect_to("/groups/#{params[:group_id]}/plans")
         else

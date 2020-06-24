@@ -10,8 +10,9 @@ class UsagesController < ApplicationController
                 flash[:notice] = "利用内容を登録しました"
                 redirect_to("/groups/#{params[:group_id]}/plans")
             else
-                flash.now[:alert] = "登録に失敗しました"
-                render template: "plans/index"
+                flash[:alert] = "登録に失敗しました。お手数ですが再度入力してください"
+                redirect_to("/groups/#{params[:group_id]}/plans")
+                # render template: "plans/index"
             end
         end
 

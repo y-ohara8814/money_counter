@@ -27,10 +27,10 @@ function check(){
     alert(year_value);
 }
 
-document.addEventListener('turbolinks:load',function(){
-    document.getElementById("purpose_other").onclick = function(){
-        alert("クリックされた！");
-        var purpose_text = document.getElementsByClassName(purpose_text);
-        purpose_text.style.display = "";
-      };
-});
+// document.addEventListener('turbolinks:load',function(){
+//     document.getElementById("purpose_other").onclick = function(){
+//         alert("クリックされた！");
+//         var purpose_text = document.getElementsByClassName(purpose_text);
+//         purpose_text.style.display = "";
+//       };
+// });

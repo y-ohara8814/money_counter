@@ -26,11 +26,22 @@ function check(){
     //モーダルに表示
     alert(year_value);
 }
-
+// 動作したjsのサンプル
 // document.addEventListener('turbolinks:load',function(){
 //     document.getElementById("purpose_other").onclick = function(){
 //         alert("クリックされた！");
-//         var purpose_text = document.getElementsByClassName(purpose_text);
-//         purpose_text.style.display = "";
 //       };
 // });
+
+ document.addEventListener('turbolinks:load',function(){
+    document.getElementsByName("usage[purpose]").onclick = function () {
+        if ( document.forms["usage[purpose]"][3].checked ) { // 「その他」のラジオボタンをクリックしたとき
+            document.forms["usage[purpose_text]"].disabled = false; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
+            document.getElementById('purpose_text').style.display = "inline"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
+        } else { // 「その他」のラジオボタン以外をクリックしたとき
+            document.forms["usage[purpose_text]"].disabled = true; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
+            document.getElementById('purpose_text').style.display = "none"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
+        }
+    };
+ });
+

@@ -7,7 +7,6 @@ class PlansController < ApplicationController
         @group_name = Group.find_by(id: params[:group_id]).name
         @plan = Plan.find_by(group_id: params[:group_id])
         @usages = Usage.where(plan_id: @plan.id)
-        # @usage_user = User.where(id: @usages.first.user_id)
         
         @usage = Usage.new
     end

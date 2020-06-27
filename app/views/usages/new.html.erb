@@ -1,5 +1,5 @@
 <p>利用金額を入力する</p>
-<%= form_with(model: @usage, local: true, id: "usage", url: create_usage_path) do |f| %>
+<%= form_with(model: @usage, local: true, name: "usage_form",id: "usage",  url: create_usage_path) do |f| %>
 <div>
     <%= f.label :date, "使った日" %>
     <%= f.date_field :date, id: "date" %>
@@ -7,6 +7,8 @@
 <div>
     <%= f.label :spending_money, "使った金額" %>
     <%= f.text_field :spending_money, id: "spending_money" %>
+</div>
+<div>
     <% if @usage.errors.include?(:spending_money) %>
          <p style="color: red;"><%= @usage.errors.full_messages_for(:spending_money).first %>
 　       <% end %>
@@ -26,7 +28,7 @@
     <%= f.label :choice2, @plan.choice2, { style: "display: inline-block;" } %>
 </div>
 <div>
-    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px" } %>
+    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px"} %>
     <%= f.label :choice3, @plan.choice3, { style: "display: inline-block;" } %>
 </div>
 <div>

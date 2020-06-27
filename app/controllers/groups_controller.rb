@@ -8,12 +8,11 @@ class GroupsController < ApplicationController
         @group = Group.new
         @group.group_users.build
 
-        @users = User.all  #Userテーブルの中の全てのユーザーを配列形式で格納したい
+        @users = User.all
     end
 
     def create
         @group = Group.new(group_params)
-        # @group_user = GroupUser.new(user_id: current_user.id, group_id: @group.id)
         if @group.save!
             flash[:notice] = "グループを作成しました"
             redirect_to("/groups/new")

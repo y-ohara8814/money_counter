@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   get "/groups/:group_id/plans/:plan_id/new", to: "usages#new"
   post "/groups/:group_id/plans/usages/create", to: "usages#create", as: 'create_usage'
+  # post "/groups/:group_id/plans/:plan_id/usages/create", to: "usages#create", as: 'create_usage'
 end

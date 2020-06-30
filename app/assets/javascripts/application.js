@@ -34,14 +34,21 @@ function check(){
 // });
 
  document.addEventListener('turbolinks:load',function(){
-    document.getElementsByName("usage[purpose]").onclick = function () {
-        if ( document.forms["usage[purpose]"][3].checked ) { // 「その他」のラジオボタンをクリックしたとき
-            document.forms["usage[purpose_text]"].disabled = false; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
-            document.getElementById('purpose_text').style.display = "inline"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
-        } else { // 「その他」のラジオボタン以外をクリックしたとき
-            document.forms["usage[purpose_text]"].disabled = true; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
-            document.getElementById('purpose_text').style.display = "none"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
-        }
-    };
+    var checkOption = document.getElementsByName('usage[purpose]');
+
+    checkOption.forEach(function(e) {
+        e.addEventListener("click", function() {           
+            console.log(document.querySelector("input:checked[name='usage[purpose]']").value);
+            if ( checkOption[3].checked ) { // 「その他」のラジオボタンをクリックしたとき
+                document.getElementById("purpose_text").disabled = false; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
+                document.getElementById('purpose_text').style.display = "inline"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
+            } else { // 「その他」のラジオボタン以外をクリックしたとき
+                document.getElementById("purpose_text").disabled = true; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
+                document.getElementById('purpose_text').style.display = "none"; // 「その他」のラジオボタンの横のテキスト入力欄を表示
+            }
+        });
+    });
+
+    
  });
 

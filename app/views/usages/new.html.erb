@@ -1,8 +1,15 @@
 <p>利用金額を入力する</p>
-<%= form_with(model: @usage, local: true, name: "usage_form",id: "usage",  url: create_usage_path) do |f| %>
+<%= form_with(model: @usage, local: true, name: "usage_form", id: "usage", url: create_usage_path) do |f| %>
+    <%= f.hidden_field :plan_id, :value => @plan.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
 <div>
     <%= f.label :date, "使った日" %>
     <%= f.date_field :date, id: "date" %>
+</div>
+<div>
+    <% if @usage.errors.include?(:date) %>
+         <p style="color: red;"><%= @usage.errors.full_messages_for(:date).first %>
+　       <% end %>
 </div>
 <div>
     <%= f.label :spending_money, "使った金額" %>
@@ -17,7 +24,7 @@
     <%= f.label :purpose, "用途" %>
     <% if @usage.errors.include?(:purpose) %>
          <p style="color: red;"><%= @usage.errors.full_messages_for(:purpose).first %>
-　       <% end %>
+　   <% end %>
 </div>
 <label>
     <%= f.radio_button :purpose, @plan.choice1, { style: "width: 40px" } %>
@@ -28,13 +35,13 @@
     <%= f.label :choice2, @plan.choice2, { style: "display: inline-block;" } %>
 </div>
 <div>
-    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px"} %>
+    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px" } %>
     <%= f.label :choice3, @plan.choice3, { style: "display: inline-block;" } %>
 </div>
 <div>
-    <%= f.radio_button :purpose, :other, { id:"purpose_other" ,style: "width: 40px"} %>
+    <%= f.radio_button :purpose, :other, { id: "purpose_other", style: "width: 40px" } %>
     <%= f.label :other, "その他", { style: "display: inline-block;" } %>
-    <%= f.text_field :purpose_text, id: "purpose_text",class:"purpose_text" %>
+    <%= f.text_field :purpose_text, {id: "purpose_text", class: "purpose_text",style: "display: none",disabled: true} %>
 </div>
 <%= f.submit "利用金額登録", data: { confirm: "登録してよろしいですか？" } %>
 <% end %>

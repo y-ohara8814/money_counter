@@ -13,9 +13,9 @@ class Usage < ApplicationRecord
         def check_purpose_text
             return if purpose != "other"
             if purpose_text.present?
-                purpose = purpose_text
+                self.purpose = purpose_text
             else
-                purpose = "その他（記入なし）"
+                self.purpose = "その他（記入なし）"
             end
         end
 end

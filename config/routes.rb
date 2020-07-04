@@ -13,13 +13,17 @@ Rails.application.routes.draw do
         post :confirm
         post :save, as: :create, action: :create
       end
+      member do
+        post :edit_confirm, as: :edit_confirm, action: :edit_confirm
+      end
       # resources :usages do
       #   post :create, as: :create, action: :create
       # end
     end
   end
 
+  #利用金額登録
   get "/groups/:group_id/plans/:plan_id/new", to: "usages#new"
   post "/groups/:group_id/plans/usages/create", to: "usages#create", as: 'create_usage'
-  # post "/groups/:group_id/plans/:plan_id/usages/create", to: "usages#create", as: 'create_usage'
+
 end

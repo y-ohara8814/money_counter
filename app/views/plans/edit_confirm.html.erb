@@ -1,4 +1,4 @@
-<h1>プラン作成内容確認</h1>
+<h1>プラン編集内容確認</h1>
 <p><%= @plan.year %>年<%= @plan.month %>月の</p>
 <p>目標金額は、</p>
 <p><%= @plan.money_amount %></p>
@@ -14,12 +14,13 @@
     <%= f.hidden_field :choice1, :value => @plan.choice1 %>
     <%= f.hidden_field :choice2, :value => @plan.choice2 %>
     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
+    <%= f.hidden_field :edit_flg, :value => true %>
 
-    <%= f.submit "入力画面へ戻る" %>
+    <%= f.submit "編集画面へ戻る" %>
 <% end%>
 </li>
 <li>
-<%= form_with(model: @plan, local: true, url: create_group_plans_path ) do |f| %>
+<%= form_with(model: @plan, local: true, url: group_plan_path ) do |f| %>
     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
     <%= f.hidden_field :year, :value => @plan.year %>
     <%= f.hidden_field :month, :value => @plan.month %>
@@ -28,6 +29,6 @@
     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
     <%= f.hidden_field :group_id, :value => @group.id %>
 
-    <%= f.submit "登録する" %>
+    <%= f.submit "編集する" %>
 <% end%>
 </li>

@@ -1,0 +1,35 @@
+<h1>プランの編集</h1>
+
+<p>編集対象プラン：<%= @plan.year%>年<%= @plan.month%>月</p>
+
+<%= form_with(model:@plan, local: true, id: 'new_plan', url: edit_confirm_group_plan_path, method: :post ) do |f| %>
+    <%= f.hidden_field :group_id, :value => @group.id %>
+    <%= f.hidden_field :edit_flg, :value => true %>
+    <%= f.hidden_field :year, :value => @plan.year %>
+    <%= f.hidden_field :month, :value => @plan.month %>
+  <div>
+    <%= f.label :title, "設定金額（半角数字で入力してください)" %>
+    <% if @plan.errors.include?(:title) %>
+     <p style="color: red;"><%= @plan.errors.full_messages_for(:title).first %>
+　   <% end %>
+    <br>
+    <%= f.text_field :money_amount, id: "money_amount" %>円
+  </div>
+  
+  <br>
+  <%= f.label :title, "用途の選択肢設定" %>
+  <div>
+  <%= f.label :title, "選択肢１" %>
+  <%= f.text_field :choice1, id: "choice1" %>
+  </div>
+  <div>
+  <%= f.label :title, "選択肢２" %>
+  <%= f.text_field :choice2, id: "choice2" %>
+  </div>
+  <div>
+  <%= f.label :title, "選択肢３" %>
+  <%= f.text_field :choice3, id: "choice3" %>
+  </div>
+  <br>
+  <%= f.submit "確認画面へ"%>
+<% end %>

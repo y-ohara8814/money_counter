@@ -16,6 +16,12 @@ class PlansController < ApplicationController
         @group = Group.find(params[:group_id])
     end
 
+    #プラン編集画面描画用
+    def edit
+        @plan = Plan.find(params[:id])
+        find_group()
+    end
+
     def confirm
         @plan = Plan.new(plan_params)
         @group = Group.find(params[:group_id])
@@ -23,10 +29,25 @@ class PlansController < ApplicationController
         render :new
     end
 
+    def edit_confirm
+        @plan = Plan.new(edit_plan_params)
+        find_group()
+        @edit_flg = params[:edit_flg]
+        return if @plan.valid?
+        render :edit
+    end
+
     def back
-        @plan = Plan.new(plan_params)
-        @group = Group.find(params[:group_id])
-        render :new
+        @edit_flg = edit_plan_params[:edit_flg]
+        if @edit_flg == true
+            @plan = Plan.new(edit_plan_params)
+            find_group()
+            render :edit
+        else
+            @plan = Plan.new(plan_params)
+            @group = Group.find(params[:group_id])
+            render :new
+        end
     end
 
     #プラン登録画面からパラメータがPOSTされてきたときの処理
@@ -42,8 +63,21 @@ class PlansController < ApplicationController
         end
     end
 
+    def update
+
+    end
+
     private 
         def plan_params
             params.require(:plan).permit(:money_amount, :year, :month, :choice1, :choice2, :choice3, :group_id)
+        end
+    private 
+        def edit_plan_params
+            params.require(:plan).permit(:money_amount, :year, :month,:choice1, :choice2, :choice3, :group_id, :edit_flg)
+        end
+
+    private
+        def find_group
+            @group = Group.find(params[:group_id])
         end
 end

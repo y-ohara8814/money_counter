@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   resources :groups do
     resources :plans do
       collection do
-        post :new ,as: :back, action: :back
+        post :back ,as: :back, action: :back
         post :confirm
         post :save, as: :create, action: :create
+      end
+      member do
+        post :edit, as: :edit_back, action: :edit_back
+        post :edit_confirm, as: :edit_confirm, action: :edit_confirm
       end
       # resources :usages do
       #   post :create, as: :create, action: :create
@@ -19,7 +23,8 @@ Rails.application.routes.draw do
     end
   end
 
+  #利用金額登録
   get "/groups/:group_id/plans/:plan_id/new", to: "usages#new"
   post "/groups/:group_id/plans/usages/create", to: "usages#create", as: 'create_usage'
-  # post "/groups/:group_id/plans/:plan_id/usages/create", to: "usages#create", as: 'create_usage'
+
 end

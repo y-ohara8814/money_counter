@@ -1,0 +1,11 @@
+<h1>プランの編集</h1>
+
+<p>編集対象プラン：<%= @plan.year%>年<%= @plan.month%>月</p>
+
+<%= form_with(model:@plan, local: true, id: 'edit_plan', url: edit_confirm_group_plan_path, method: :post ) do |f| %>
+    <%= f.hidden_field :group_id, :value => @group.id %>
+    <%= f.hidden_field :edit_flg, :value => true %>
+
+<%= render partial: "form", locals: {f: f}%>
+  
+<% end %>

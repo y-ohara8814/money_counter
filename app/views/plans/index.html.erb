@@ -4,7 +4,11 @@
 <% end %>
 <p>目標金額</p>
 <% if @plan.present? %>
-<b><p id='money_amount'><%= @plan.money_amount %></p></b>
+<b><p id='money_amount'>¥ <%= @plan.money_amount %> <%= link_to "編集する", "/groups/#{@group.id}/plans/#{@plan.id}/edit" %></p></b>
+<% end %>
+<p>現在の利用金額合計</p>
+<% if @plan.present? %>
+<b><p id='spending_money_total'>¥ <%= @spending_money_total %></p></b>
 <% end %>
 <p>利用履歴</p>
 <div data-simplebar>

@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   resources :groups do
     resources :plans do
       collection do
-        post :new ,as: :back, action: :back
+        post :back ,as: :back, action: :back
         post :confirm
         post :save, as: :create, action: :create
       end
       member do
+        post :edit, as: :edit_back, action: :edit_back
         post :edit_confirm, as: :edit_confirm, action: :edit_confirm
       end
       # resources :usages do

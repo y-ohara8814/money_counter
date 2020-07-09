@@ -7,7 +7,7 @@
 <p>2:<%= @plan.choice2 %></p>
 <p>3:<%= @plan.choice3 %></p>
 <li>
-<%= form_with(model: @plan, local: true, url: back_group_plans_path ) do |f| %>
+<%= form_with(model: @plan, local: true, url: edit_back_group_plan_path ) do |f| %>
     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
     <%= f.hidden_field :year, :value => @plan.year %>
     <%= f.hidden_field :month, :value => @plan.month %>
@@ -20,7 +20,7 @@
 <% end%>
 </li>
 <li>
-<%= form_with(model: @plan, local: true, url: group_plan_path ) do |f| %>
+<%= form_with(model: @plan, local: true, url: group_plan_path, method: :patch ) do |f| %>
     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
     <%= f.hidden_field :year, :value => @plan.year %>
     <%= f.hidden_field :month, :value => @plan.month %>

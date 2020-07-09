@@ -6,7 +6,8 @@ class Plan < ApplicationRecord
     validates :year, presence: true
     validates :month, presence: true
     validates :group_id, presence: true
-
-    attr_accessor :edit_flg
+    validates :choice1, presence: true
+    validates :choice2, presence: true
+    validates :choice3, presence: true
 
 end

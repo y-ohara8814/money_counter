@@ -15,7 +15,8 @@ class GroupsController < ApplicationController
         @group = Group.new(group_params)
         if @group.save!
             flash[:notice] = "グループを作成しました"
-            redirect_to("/groups/new")
+            # redirect_to("/groups/new")
+            redirect_to("/users/#{current_user.id}")
         else
             flash.now[:alert] = "グループ作成に失敗しました"
             render("groups/new")
@@ -26,7 +27,7 @@ class GroupsController < ApplicationController
 
     end
 
-    private 
+    private
         def group_params
             params.require(:group).permit(:name, { user_ids: [] })
         end

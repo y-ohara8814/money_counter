@@ -1,6 +1,9 @@
 <h2>ユーザーの詳細ページ</h2>
-<%= @user.name %>さん
 
+<%= current_user.name %>さん
+
+<!-- 所属するグループIDがある場合 -->
+<% if @groups.present? %>
 <table border='1' class="table">
     <thead class="thead-dark">
         <tr>
@@ -18,15 +21,15 @@
         </tr>
     <% end %>
     </tbody>
-
-
-
-
 </table>
+<!-- 所属するグループIDがない場合-->
+<% else %>
+<p>ようこそ。まずはプラン設定のため、グループを作成しましょう</p>
+<%= link_to "グループ作成", "/groups/new" %>
 
+<% end %>
     <br>
-    
         <br>
-    
+
 
 

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   #利用金額登録
   get "/groups/:group_id/plans/:plan_id/new", to: "usages#new"
   post "/groups/:group_id/plans/usages/create", to: "usages#create", as: 'create_usage'

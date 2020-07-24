@@ -1,65 +1,72 @@
 <!-- グループに属しているユーザーのみ見られる　ここから-->
+<% if @belong_group_ids.present? %>
+    <% if @user_match_flag == true %>
 
-<p><%= @group_name %>の月次プラン</p>
-<% if @plan.present? %>
-    <p><%= @plan.year %>年<%= @plan.month %>月</p>
-<% else %>
-    <p>現在の年月<%= @current_date.year %>年<%= @current_date.month%>月</p>
-<% end %>
-<p>翌月<%= @next_month%></p>
-<p>前月<%= @prev_month%></p>
-<!--  プランが存在する場合表示する　ここから-->
-<% if @date_match_flag != false %>
-    <p>目標金額</p>
-    <% if @plan.present? %>
-    <b><p id='money_amount'>¥ <%= @plan.money_amount %> <%= link_to "編集する", "/groups/#{@group.id}/plans/#{@plan.id}/edit" %></p></b>
-    <% end %>
-    <p>現在の利用金額合計</p>
-    <% if @plan.present? %>
-    <b><p id='spending_money_total'>¥ <%= @spending_money_total %></p></b>
-    <% end %>
-    <%= link_to(group_plans_path(datetime: @prev_month)) do %>
-        <button style="width: 60px;">前月</button>
-    <% end %>
-    &nbsp&nbsp
-    <%= link_to(group_plans_path(datetime: @next_month)) do %>
-        <button style="width: 60px;">翌月</button>
-    <% end %>
+    <p><%= @group_name %>の月次プラン</p>
 
-    <p>利用履歴</p>
-    <div data-simplebar>
-    <table border='1' class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>使った日</th>
-                <th>使った金額</th>
-                <th>用途</th>
-                <th>使った人</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% @usages.each do |usage| %>
-            <tr>
-                <td><%= usage.date %></td>
-                <td><%= usage.spending_money %></td>
-                <td><%= usage.purpose %></td>
-                <td><%= usage.user.name %></td>
-            </tr>
+        <% if @plan.present? && @date_match_flag != false %>
+            <p><%= @plan.year %>年<%= @plan.month %>月</p>
+        <% elsif @date_match_flag == false%>
+            <p><%= @param_year%>年<%= @param_month%>月</p>
         <% end %>
-        </tbody>
-    </table>
-    </div>
-<!-- プランが存在する場合表示する　ここまで-->
-<!-- プランが存在しない場合　ここから-->
-<% else %>
-<%= render partial: "noplan"%>
 
-<% end %>
+        <%= link_to(group_plans_path(datetime: @prev_month)) do %>
+            <button style="width: 60px;">前月</button>
+        <% end %>
+        &nbsp&nbsp
+        <%= link_to(group_plans_path(datetime: @next_month)) do %>
+            <button style="width: 60px;">翌月</button>
+        <% end %>
+        
+    <!--  プランが存在する場合表示する　ここから-->
+    <% if @date_match_flag != false %>
+        <p>目標金額</p>
+        <% if @plan.present? %>
+        <b><p id='money_amount'>¥ <%= @plan.money_amount %> <%= link_to "編集する", "/groups/#{@group.id}/plans/#{@plan.id}/edit" %></p></b>
+        <% end %>
+        <p>現在の利用金額合計</p>
+        <% if @plan.present? %>
+        <b><p id='spending_money_total'>¥ <%= @spending_money_total %></p></b>
+        <% end %>
+
+        <p>利用履歴</p>
+        <div data-simplebar>
+        <table border='1' class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>使った日</th>
+                    <th>使った金額</th>
+                    <th>用途</th>
+                    <th>使った人</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @usages.each do |usage| %>
+                <tr>
+                    <td><%= usage.date %></td>
+                    <td><%= usage.spending_money %></td>
+                    <td><%= usage.purpose %></td>
+                    <td><%= usage.user.name %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+        </div>
+    <!-- プランが存在する場合表示する　ここまで-->
+    <!-- プランが存在しない場合　ここから-->
+    <% else %>
+        <%= render partial: "noplan", locals: {past_date_flag: @past_date_flag, group: @group} %>
+    <% end %>
+
 
 <!-- グループに属しているユーザーのみ見られる　ここまで-->
+    <% else %>
 <!-- グループに属してないユーザーに対して見せる　ここから-->
-
+    <%= render partial: "user_unmached"%>
 <!-- グループに属してないユーザーに対して見せる　ここまで-->
+    <% end %>
+
+<% end %>
 
 <hr>
 
@@ -67,7 +74,7 @@
 
 <%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}") %>
 <!-- プランが存在する場合表示する　ここから-->
-<!-- TODO　かつ閲覧している人がグループに属するユーザーの場合のみ表示する　ここから-->
-<% if @date_match_flag != false %>
+<!-- かつ閲覧している人がグループに属するユーザーの場合のみ表示する　ここから-->
+<% if @date_match_flag != false && @user_match_flag == true && @current_date.year <= Date.today.year && @current_date.month == Date.today.month %>
     <%= link_to("利用金額を登録する", "/groups/#{@group.id}/plans/#{@plan.id}/new") %>
 <% end %>

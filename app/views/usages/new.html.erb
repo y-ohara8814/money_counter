@@ -1,3 +1,7 @@
+<p><%= @plan.year %>年<%= @plan.month %>月のプラン</p>
+<%= @plan.id%>
+
+
 <p>利用金額を入力する</p>
 <%= form_with(model: @usage, local: true, name: "usage_form", id: "usage", url: create_usage_path) do |f| %>
     <%= f.hidden_field :plan_id, :value => @plan.id %>

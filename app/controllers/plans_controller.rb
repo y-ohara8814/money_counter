@@ -1,31 +1,26 @@
 class PlansController < ApplicationController
-    require "pry"
     require "date"
 
     before_action :plan_params, only:[:create,:confirm,:back]
+    before_action :user_match_check
     #グループIDに紐づくプランを表示
     def index
         @group = Group.find_by(id: params[:group_id])
         @group_name = Group.find_by(id: params[:group_id]).name
         @plan = Plan.find_by(group_id: params[:group_id])
         @plan_all = Plan.where(group_id: params[:group_id])
-        if @plan.present?
-            @usages = Usage.where(plan_id: @plan.id)
-            @spending_money_total = @usages.all.sum(:spending_money)
-        end
 
         @usage = Usage.new
 
         #URLのクエリパラメータの有無を確認
         if params[:datetime].present?
             #クエリパラメータがあったら、その年月情報を取得
-
             query_datetime_int = Date.parse(params[:datetime])
-            param_year = query_datetime_int.year
-            param_month = query_datetime_int.month
-            @current_date = Date.new(param_year, param_month)
+            @param_year = query_datetime_int.year
+            @param_month = query_datetime_int.month
+            @current_date = Date.new(@param_year, @param_month)
             #クエリパラメータの年月と合致する年月のプランがあるかをチェック
-            @plan_specific = Plan.where(group_id: params[:group_id], year: param_year, month: param_month).first
+            @plan_specific = Plan.where(group_id: params[:group_id], year: @param_year, month: @param_month).first
             #クエリパラメータの年月と合致する年月のプランがあったら、それを@planとしてviewに渡す
             if @plan_specific.present?
                 @query_date_match_flag = true
@@ -35,11 +30,15 @@ class PlansController < ApplicationController
             else
             #クエリパラメータの年月と合致する年月のプランがなかったら、「この月のプランは設定されていません」的なページを表示
                 @date_match_flag = false
-                @plan.year = 9999
-                @plan.month = 9
+                #クエリパラメータの年月が現在以降だったら、プラン作成ボタン表示用のフラグをたてる
+                if @current_date > Date.today
+                    @past_date_flag = false
+                else
+                    @past_date_flag = true
+                end
+                @next_month = @current_date.next_month
+                @prev_month = @current_date.prev_month
             end
-
-
 
         else
             #URLにクエリパラメータがなかったら現在年月と合致するプランがあるかをチェック
@@ -51,10 +50,7 @@ class PlansController < ApplicationController
             @plan_specific = Plan.where(group_id: params[:group_id], year: @current_year, month: @current_month).first
             #現在年月と合致する年月のプランがあったら、それを@planとしてviewに返す
             if @plan_specific.present?
-
                 @plan = @plan_specific
-
-
             else
 
             #現在年月と合致する年月のプランがなかったら、「この月のプランは設定されていません」的なページを表示
@@ -62,20 +58,16 @@ class PlansController < ApplicationController
 
             end
 
-
-
-            #また、プラン作成を促すページも表示
-
-
-
         end
+        #月初月末情報取得
+        begin_of_month = @current_date.beginning_of_month
+        end_of_month = @current_date.end_of_month
 
-        #クエリパラメータの年月が現在〜未来だったら、プラン作成を促すページも表示
-        # if @date_match_flag != false && (param_year < @current_date.year || param_month < @current_date.month)
-
-        # end
-            #クエリパラメータの年月が過去だったら、プラン作成は不可
-
+        #利用履歴表示
+        if @plan.present?
+            @usages = Usage.where(plan_id: @plan.id).where("date >= ?", begin_of_month).where("date <= ?", end_of_month)
+            @spending_money_total = @usages.all.sum(:spending_money)
+        end
 
     end
     #プラン登録画面描画用
@@ -149,5 +141,15 @@ class PlansController < ApplicationController
     private
         def find_group
             @group = Group.find(params[:group_id])
+        end
+
+    private
+        def user_match_check
+            @belong_group_ids = current_user.groups.ids #配列形式
+            if @belong_group_ids.include?(params[:group_id].to_i)
+                @user_match_flag = true
+            else
+                @user_match_flag = false
+            end
         end
 end

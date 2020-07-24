@@ -1,7 +1,11 @@
-<h1>プランの新規登録</h1>
+<% if @user_match_flag == true %>
 
-<%= form_with(model:@plan, local: true, id: 'new_plan', url: confirm_group_plans_path ) do |f| %>
-<%= f.hidden_field :group_id, :value => @group.id %>
-<%= render partial: "form", locals: {f: f}%>
+    <h1>プランの新規登録</h1>
 
+    <%= form_with(model:@plan, local: true, id: 'new_plan', url: confirm_group_plans_path ) do |f| %>
+        <%= f.hidden_field :group_id, :value => @group.id %>
+        <%= render partial: "form", locals: {f: f}%>
+    <% end %>
+<% else %>
+    <%= render partial: "user_unmached"%>
 <% end %>

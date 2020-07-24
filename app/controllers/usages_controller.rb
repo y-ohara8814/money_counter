@@ -1,26 +1,18 @@
 class UsagesController < ApplicationController
 
         def new
-            
+
         @group = Group.find_by(id: params[:group_id])
         @group_name = Group.find_by(id: params[:group_id]).name
-        @plan = Plan.find_by(group_id: params[:group_id])
+        # @plan = Plan.find_by(group_id: params[:group_id])
+        @plan = Plan.find_by(id: params[:plan_id])
         @usages = Usage.where(plan_id: @plan.id)
-        
+
         @usage = Usage.new
         end
 
         def create
             @group = Group.find(params[:group_id])
-            # usage_current_params = usage_params
-            # if params[:usage][:purpose_text].present? && usage_current_params[:purpose] == "other"
-            #     usage_current_params[:purpose] = params[:usage][:purpose_text]
-            # end
-            # if usage_current_params[:purpose] == "other" && params[:usage][:purpose_text].empty?
-            #     usage_current_params[:purpose] = "その他（記入なし）"
-            # end
-
-            # @usage = Usage.new(usage_current_params)
             @usage = Usage.new(usage_params)
             if @usage.save
                 flash[:notice] = "利用内容を登録しました"
@@ -32,7 +24,7 @@ class UsagesController < ApplicationController
             end
         end
 
-    private 
+    private
         def usage_params
             params.require(:usage).permit(:spending_money, :date, :purpose,:plan_id, :user_id, :purpose_text)
         end

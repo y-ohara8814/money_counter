@@ -15,6 +15,11 @@
       <% t.label { t.check_box + t.text } %>
     <% end %>
   </div>
+  <div>
+    <% if @group.errors.include?(:user_ids) %>
+         <p style="color: red;"><%= @group.errors.full_messages_for(:user_ids).first %>
+　  <% end %>
+  </div>
    <br>
   <%= f.submit %>
 <% end %>

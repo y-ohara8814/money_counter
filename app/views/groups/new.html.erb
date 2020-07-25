@@ -3,6 +3,11 @@
     <p>グループ名</p>
     <%= f.text_field :name %>
   </div>
+  <div>
+    <% if @group.errors.include?(:name) %>
+         <p style="color: red;"><%= @group.errors.full_messages_for(:name).first %>
+　  <% end %>
+  </div>
   <br>
   <p>所属するメンバー</p>
    <div class="field">

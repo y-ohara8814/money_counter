@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :password, presence: true
-
+  # validates :password, presence: true #この記述があるとグループ新規作成時、Users is invalidというエラーが出る
 
 end

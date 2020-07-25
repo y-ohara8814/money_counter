@@ -6,5 +6,5 @@ class Group < ApplicationRecord
 
     validates :name, presence: {message: "グループ名は必須です"}, length: {maximum: 30}
 
-    # validates :user_ids, presence: {message: "所属ユーザーは自分を含め１名以上選択してください"}
+    validates :user_ids, presence: {message: "所属ユーザーは自分を含め１名以上選択してください"}
 end

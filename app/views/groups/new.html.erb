@@ -11,7 +11,7 @@
   <br>
   <p>所属するメンバー</p>
    <div class="field">
-    <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name, checked: current_user.id) do |t|  %>
+    <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name, checked: current_user.id, include_hidden: false) do |t|  %>
       <% t.label { t.check_box + t.text } %>
     <% end %>
   </div>

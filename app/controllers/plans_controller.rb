@@ -31,7 +31,7 @@ class PlansController < ApplicationController
             #クエリパラメータの年月と合致する年月のプランがなかったら、「この月のプランは設定されていません」的なページを表示
                 @date_match_flag = false
                 #クエリパラメータの年月が現在以降だったら、プラン作成ボタン表示用のフラグをたてる
-                if @current_date > Date.today
+                if @current_date >= Date.today
                     @past_date_flag = false
                 else
                     @past_date_flag = true
@@ -55,6 +55,12 @@ class PlansController < ApplicationController
 
             #現在年月と合致する年月のプランがなかったら、「この月のプランは設定されていません」的なページを表示
                 @date_match_flag = false
+                #年月が現在以降だったら、プラン作成ボタン表示用のフラグをたてる
+                if @current_date >= Date.today
+                    @past_date_flag = false
+                else
+                    @past_date_flag = true
+                end
 
             end
 

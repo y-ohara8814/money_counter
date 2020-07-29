@@ -12,8 +12,14 @@ class GroupsController < ApplicationController
     end
 
     def create
+
         @group = Group.new(group_params)
-        if @group.save!
+
+        unless group_params[:user_ids]&.include?(current_user.id)
+            flash.now[:alert] = "所属するメンバーは、自分を含む１名以上を選択してください"
+            render("groups/new") and return
+        end
+        if @group.save
             flash[:notice] = "グループを作成しました"
             # redirect_to("/groups/new")
             redirect_to("/users/#{current_user.id}")

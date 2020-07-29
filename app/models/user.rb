@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :usages, foreign_key: "user_id"
 
   validates :name, presence: true
-  # validates :email, presence: true
-  # validates :password, presence: true #この記述があるとグループ新規作成時、Users is invalidというエラーが出る
+  validates :email, presence: true
+  validates :password, presence: true,if: -> { new_record? || changes["password"]}
 
 end

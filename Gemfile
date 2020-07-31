@@ -46,6 +46,8 @@ group :development, :test do
   gem 'pry-byebug'
   #20200725
   gem 'rspec-rails', '~> 3.6.0'
+  #20200730
+  gem "factory_bot_rails", "~>4.10.0"
 end
 
 group :development do

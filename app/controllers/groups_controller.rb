@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+    require "pry"
 
     def index
         @text = 'ようこそ、グループのインデックスページです'
@@ -14,8 +15,7 @@ class GroupsController < ApplicationController
     def create
 
         @group = Group.new(group_params)
-
-        unless group_params[:user_ids]&.include?(current_user.id)
+        if group_params[:user_ids]&.exclude?(current_user.id.to_s)
             flash.now[:alert] = "所属するメンバーは、自分を含む１名以上を選択してください"
             render("groups/new") and return
         end

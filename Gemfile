@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.2.4.3'
 gem "activesupport", ">= 5.2.4.3"
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3' 20200801
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

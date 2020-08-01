@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.2.4.3'
 gem "activesupport", ">= 5.2.4.3"
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3' 20200801
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -48,6 +48,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6.0'
   #20200730
   gem "factory_bot_rails", "~>4.10.0"
+  #20200801
+  gem 'sqlite3'
 end
 
 group :development do
@@ -59,6 +61,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #20200725
   gem 'spring-commands-rspec'
+end
+
+#20200801
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

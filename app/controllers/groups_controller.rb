@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    require "pry"
+    # require "pry"
 
     def index
         @text = 'ようこそ、グループのインデックスページです'

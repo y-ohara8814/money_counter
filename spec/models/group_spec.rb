@@ -5,9 +5,7 @@ RSpec.describe Group, type: :model do
 
 #グループ名、所属メンバーがあれば有効であること
 it "is valid with name, user_ids" do
-  # user1 = FactoryBot.create(:user)
-  # user2 = FactoryBot.create(:user)
-  group = FactoryBot.create(:group)
+  group = FactoryBot.create(:group, :with_two_users)
 
   expect(group).to be_valid
 end

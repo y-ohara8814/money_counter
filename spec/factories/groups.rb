@@ -9,5 +9,9 @@ FactoryBot.define do
         end
       end
     end
+
+    trait :name_nil do
+      name nil
+    end
   end
 end

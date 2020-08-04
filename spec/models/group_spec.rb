@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe Group, type: :model do
   # pending "add some examples to (or delete) #{__FILE__}"
@@ -11,9 +12,12 @@ it "is valid with name, user_ids" do
 end
 #グループ名がなければ無効であること
 it "is invalid without name" do
-  user1 = FactoryBot.create(:user)
-  user2 = FactoryBot.create(:user)
-  group = FactoryBot.build(:group,name: nil)
+  # user1 = FactoryBot.create(:user)
+  # user2 = FactoryBot.create(:user)
+  # group = FactoryBot.build(:group,name: nil)
+
+  # group = FactoryBot.create(:group, :with_two_users ,name: nil)
+  group = FactoryBot.create(:group, traits: [:name_nil, :with_two_users])
 
   group.valid?
   expect(group.errors[:name]).to include("グループ名は必須です")

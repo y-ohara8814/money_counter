@@ -9,5 +9,6 @@ class Plan < ApplicationRecord
     validates :choice1, presence: true
     validates :choice2, presence: true
     validates :choice3, presence: true
+    validates :group_id, presence: true
 
 end

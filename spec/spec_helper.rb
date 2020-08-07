@@ -93,4 +93,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  #20200805
+  config.before(:all) do
+    FactoryBot.reload
+  end
 end

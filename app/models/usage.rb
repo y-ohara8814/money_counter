@@ -5,6 +5,7 @@ class Usage < ApplicationRecord
     validates :spending_money, presence: true
     validates :date, presence: true
     validates :purpose, presence: true
+    validates :plan_id, presence: true
 
     attr_accessor :purpose_text
     before_save :check_purpose_text

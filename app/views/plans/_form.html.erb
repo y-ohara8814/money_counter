@@ -1,5 +1,5 @@
 
-    
+
   <div>
     <%= f.label :title, "設定金額（半角数字で入力してください)" %>
     <% if @plan.errors.include?(:money_amount) %>
@@ -26,12 +26,17 @@
                          ["11", "11"],
                          ["12", "12"]],
                         {include_blank: "選択して下さい"}, {id: 'month'} %>月
+    <div>
+      <% if @plan.errors.include?(:month) %>
+        <p style="color: red;"><%= @plan.errors.full_messages_for(:month).first %>
+  　  <% end %>
+    </div>
   </div>
   <br>
   <%= f.label :title, "用途の選択肢設定" %>
-  
-  
-  
+
+
+
   <div>
   <%= f.label :title, "選択肢１" %>
   <%= f.text_field :choice1, id: "choice1" %>

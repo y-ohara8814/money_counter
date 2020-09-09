@@ -6,8 +6,10 @@
 
         <% if @plan.present? && @date_match_flag != false %>
             <p><%= @plan.year %>年<%= @plan.month %>月</p>
-        <% elsif @date_match_flag == false%>
+        <% elsif @date_match_flag == false && @param_year.present? %>
             <p><%= @param_year%>年<%= @param_month%>月</p>
+        <% else %>
+            <p><%= @current_year %>年<%= @current_month %>月</p>
         <% end %>
 
         <%= link_to(group_plans_path(datetime: @prev_month)) do %>
@@ -17,7 +19,7 @@
         <%= link_to(group_plans_path(datetime: @next_month)) do %>
             <button style="width: 60px;">翌月</button>
         <% end %>
-        
+
     <!--  プランが存在する場合表示する　ここから-->
     <% if @date_match_flag != false %>
         <p>目標金額</p>

@@ -18,7 +18,7 @@ class PlansController < ApplicationController
             query_datetime_int = Date.parse(params[:datetime])
             @param_year = query_datetime_int.year
             @param_month = query_datetime_int.month
-            @current_date = Date.new(@param_year, @param_month)
+            @current_date = Date.new(@param_year, @param_month).end_of_month
             #クエリパラメータの年月と合致する年月のプランがあるかをチェック
             @plan_specific = Plan.where(group_id: params[:group_id], year: @param_year, month: @param_month).first
             #クエリパラメータの年月と合致する年月のプランがあったら、それを@planとしてviewに渡す

@@ -75,6 +75,11 @@ class PlansController < ApplicationController
             @spending_money_total = @usages.all.sum(:spending_money)
         end
 
+        #円グラフ表示用
+        if @plan.present?
+            @usage_sum_arr = @usages.group(:purpose).sum(:spending_money)
+            @chart = {@plan.choice1 => @usage_sum_arr[@plan.choice1], @plan.choice2 => @usage_sum_arr[@plan.choice2], @plan.choice3 => @usage_sum_arr[@plan.choice3]}
+        end
     end
     #プラン登録画面描画用
     def new

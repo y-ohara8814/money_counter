@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require Chart.bundle
+//= require chartkick
 
 function check(){
     //プラン新規作成画面の、設定金額の値を取得
@@ -37,7 +39,7 @@ function check(){
     var checkOption = document.getElementsByName('usage[purpose]');
 
     checkOption.forEach(function(e) {
-        e.addEventListener("click", function() {           
+        e.addEventListener("click", function() {
             console.log(document.querySelector("input:checked[name='usage[purpose]']").value);
             if ( checkOption[3].checked ) { // 「その他」のラジオボタンをクリックしたとき
                 document.getElementById("purpose_text").disabled = false; // 「その他」のラジオボタンの横のテキスト入力欄を有効化
@@ -49,6 +51,6 @@ function check(){
         });
     });
 
-    
+
  });
 

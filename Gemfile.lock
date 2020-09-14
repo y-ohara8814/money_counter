@@ -57,7 +57,12 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartable (0.0.0.3)
+      activesupport (>= 3.0.0)
+      chronic (~> 0.10)
+    chartkick (3.4.0)
     childprocess (3.0.0)
+    chronic (0.10.2)
     coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -236,6 +241,8 @@ DEPENDENCIES
   activesupport (>= 5.2.4.3)
   byebug
   capybara (>= 2.15)
+  chartable
+  chartkick
   coffee-rails (~> 4.2)
   devise
   factory_bot_rails (~> 4.10.0)

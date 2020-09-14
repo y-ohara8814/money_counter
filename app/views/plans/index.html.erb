@@ -1,5 +1,6 @@
 <!-- グループに属しているユーザーのみ見られる　ここから-->
 <% if @belong_group_ids.present? %>
+
     <% if @user_match_flag == true %>
 
     <p><%= @group_name %>の月次プラン</p>
@@ -11,14 +12,22 @@
         <% else %>
             <p><%= @current_year %>年<%= @current_month %>月</p>
         <% end %>
-
-        <%= link_to(group_plans_path(datetime: @prev_month)) do %>
-            <button style="width: 60px;">前月</button>
-        <% end %>
-        &nbsp&nbsp
-        <%= link_to(group_plans_path(datetime: @next_month)) do %>
-            <button style="width: 60px;">翌月</button>
-        <% end %>
+        <%if @chart.present?%>
+            <div class="container">
+                <div id="chart">
+                    <%= pie_chart @chart %>
+                </div>
+            </div>
+        <%end%>
+        <div class="container">
+            <%= link_to(group_plans_path(datetime: @prev_month)) do %>
+                <button style="width: 60px;">前月</button>
+            <% end %>
+            &nbsp&nbsp
+            <%= link_to(group_plans_path(datetime: @next_month)) do %>
+                <button style="width: 60px;">翌月</button>
+            <% end %>
+        </div>
 
     <!--  プランが存在する場合表示する　ここから-->
     <% if @date_match_flag != false %>

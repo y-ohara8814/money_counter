@@ -76,9 +76,9 @@ class PlansController < ApplicationController
         end
 
         #円グラフ表示用
-        if @plan.present?
+        if @plan_specific.present?
             @usage_sum_arr = @usages.group(:purpose).sum(:spending_money)
-            @chart = {@plan.choice1 => @usage_sum_arr[@plan.choice1], @plan.choice2 => @usage_sum_arr[@plan.choice2], @plan.choice3 => @usage_sum_arr[@plan.choice3]}
+            @chart = {@plan_specific.choice1 => @usage_sum_arr[@plan_specific.choice1], @plan_specific.choice2 => @usage_sum_arr[@plan_specific.choice2], @plan_specific.choice3 => @usage_sum_arr[@plan_specific.choice3]}
         end
     end
     #プラン登録画面描画用

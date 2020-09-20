@@ -73,6 +73,8 @@ class PlansController < ApplicationController
         if @plan.present?
             @usages = Usage.where(plan_id: @plan.id).where("date >= ?", begin_of_month).where("date <= ?", end_of_month)
             @spending_money_total = @usages.all.sum(:spending_money)
+            @spending_money_each = Usage.joins(:user).select('user.name').where(plan_id: 5).where("date >= ?", begin_of_month).where("date <= ?", end_of_month).group(:name).sum(:spending_money)
+            @zandaka = @plan.money_amount - @spending_money_total
         end
 
         #円グラフ表示用

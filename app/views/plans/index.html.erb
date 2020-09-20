@@ -1,17 +1,37 @@
 <!-- グループに属しているユーザーのみ見られる　ここから-->
 <% if @belong_group_ids.present? %>
-
+    <div class="container bg ui center aligned">
     <% if @user_match_flag == true %>
 
     <p><%= @group_name %>の月次プラン</p>
+    <div class="ui grid">
+        <div class="column ym-info">
+            <%= link_to(group_plans_path(datetime: @prev_month)) do %>
+                <button style="width: 60px;">前月</button>
+            <% end %>
+            &nbsp&nbsp
+            <% if @plan.present? && @date_match_flag != false %>
+                <span><%= @plan.year %>年<%= @plan.month %>月</span>
+            <% elsif @date_match_flag == false && @param_year.present? %>
+                <span><%= @param_year%>年<%= @param_month%>月</span>
+            <% else %>
+                <span><%= @current_year %>年<%= @current_month %>月</span>
+            <% end %>
+            &nbsp&nbsp
+            <%= link_to(group_plans_path(datetime: @next_month)) do %>
+                <button style="width: 60px;">翌月</button>
+            <% end %>
+        </div>
+    </div>
 
-        <% if @plan.present? && @date_match_flag != false %>
-            <p><%= @plan.year %>年<%= @plan.month %>月</p>
-        <% elsif @date_match_flag == false && @param_year.present? %>
-            <p><%= @param_year%>年<%= @param_month%>月</p>
-        <% else %>
-            <p><%= @current_year %>年<%= @current_month %>月</p>
+
+    <!--  プランが存在する場合表示する　ここから-->
+    <% if @date_match_flag != false %>
+        <h3 class="title ui center aligned">目標金額</h3>
+        <% if @plan.present? %>
+        <span><b class='money_amount'>¥ <%= @plan.money_amount %></b><%= link_to "変更", "/groups/#{@group.id}/plans/#{@plan.id}/edit", :class=>"edit ui blue button"%></span>
         <% end %>
+
         <%if @chart.present?%>
             <div class="container">
                 <div id="chart">
@@ -19,45 +39,37 @@
                 </div>
             </div>
         <%end%>
-        <div class="container">
-            <%= link_to(group_plans_path(datetime: @prev_month)) do %>
-                <button style="width: 60px;">前月</button>
-            <% end %>
-            &nbsp&nbsp
-            <%= link_to(group_plans_path(datetime: @next_month)) do %>
-                <button style="width: 60px;">翌月</button>
-            <% end %>
-        </div>
 
-    <!--  プランが存在する場合表示する　ここから-->
-    <% if @date_match_flag != false %>
-        <p>目標金額</p>
+        <h3 class="title ui center aligned">目標金額に対して残りあと</h3>
         <% if @plan.present? %>
-        <b><p id='money_amount'>¥ <%= @plan.money_amount %> <%= link_to "編集する", "/groups/#{@group.id}/plans/#{@plan.id}/edit" %></p></b>
+            <b><span id="zandaka" data-value="<%= @zandaka %>" class='zandaka'>¥ <%= @zandaka %></span></b>
         <% end %>
-        <p>現在の利用金額合計</p>
+        <h3 class="title ui center aligned">現在の利用金額</h3>
         <% if @plan.present? %>
-        <b><p id='spending_money_total'>¥ <%= @spending_money_total %></p></b>
+            <b><p class='spending_money_total'>¥ <%= @spending_money_total %></p></b>
+            <% @spending_money_each.each do |name, amount| %>
+                <p><%= name %>さん(<%= amount %>円)</p>
+            <% end %>
         <% end %>
 
-        <p>利用履歴</p>
-        <div data-simplebar>
-        <table border='1' class="table">
+        <h3 class="title ui center aligned">利用履歴</h3>
+        <div data-simplebar class="table-wrapper">
+        <table class="ui center aligned striped table">
             <thead class="thead-dark">
                 <tr>
-                    <th>使った日</th>
-                    <th>使った金額</th>
-                    <th>用途</th>
-                    <th>使った人</th>
+                    <th class="five wide">使った日</th>
+                    <th class="four wide">使った金額</th>
+                    <th class="five wide">用途</th>
+                    <th class="two wide">使った人</th>
                 </tr>
             </thead>
             <tbody>
             <% @usages.each do |usage| %>
                 <tr>
-                    <td><%= usage.date %></td>
-                    <td><%= usage.spending_money %></td>
-                    <td><%= usage.purpose %></td>
-                    <td><%= usage.user.name %></td>
+                    <td class="five wide"><%= usage.date %></td>
+                    <td class="four wide"><%= usage.spending_money %></td>
+                    <td class="five wide"><%= usage.purpose %></td>
+                    <td class="two wide"><%= usage.user.name %></td>
                 </tr>
             <% end %>
             </tbody>
@@ -76,16 +88,20 @@
     <%= render partial: "user_unmached"%>
 <!-- グループに属してないユーザーに対して見せる　ここまで-->
     <% end %>
-
+</div>
 <% end %>
+
+
 
 <hr>
 
 
+<div class="button-wrapper">
+    <li><%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}", :class=>"back ui green button") %></li>
+    <!-- プランが存在する場合表示する　ここから-->
+    <!-- かつ閲覧している人がグループに属するユーザーの場合のみ表示する　ここから-->
+    <% if @date_match_flag != false && @user_match_flag == true && @current_date.year <= Date.today.year && @current_date.month == Date.today.month %>
+        <li><%= link_to("利用金額を登録する", "/groups/#{@group.id}/plans/#{@plan.id}/new", :class=>"new ui blue button") %></li>
+    <% end %>
+</div>
 
-<%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}") %>
-<!-- プランが存在する場合表示する　ここから-->
-<!-- かつ閲覧している人がグループに属するユーザーの場合のみ表示する　ここから-->
-<% if @date_match_flag != false && @user_match_flag == true && @current_date.year <= Date.today.year && @current_date.month == Date.today.month %>
-    <%= link_to("利用金額を登録する", "/groups/#{@group.id}/plans/#{@plan.id}/new") %>
-<% end %>

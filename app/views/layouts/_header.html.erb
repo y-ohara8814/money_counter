@@ -1,25 +1,40 @@
 <header>
- <div class="header-logo">
-    <%= link_to("Money Counter", "/") %>
-  </div>
-  <ul>
+  <div class="ui three column stackable grid container">
+    <div class="column header-logo">
+        <%= link_to("Money Counter", "/") %>
+    </div>
+
     <% if user_signed_in? %>
-      <li>
-        <%= current_user.name %>さん(ユーザーID：<%= current_user.id%>)
-      </li>
-      <li>
-        <%= link_to("マイページ", "/users/#{current_user.id}") %>
-      </li>
-      <li>
-        <%= link_to("ログアウト", "/users/sign_out", method: :delete, data: {confirm: "本当にログアウトしますか？"}) %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to("新規登録", "/users/sign_up") %>
-      </li>
-      <li>
-        <%= link_to("ログイン", "/users/sign_in") %>
-      </li>
-    <% end %>
-  </ul>
+
+    <div class="column" id="current_user">
+      <%= current_user.name %>さん(ユーザーID：<%= current_user.id%>)
+    </div>
+    <%end%>
+    <div class="column ui inverted dropdown aligned right">
+        <input type="hidden" name="menu">
+        <div class="default"><i class="list icon"></i></div>
+        <div class="menu">
+        <% if user_signed_in? %>
+
+          <div  class="item">
+            <%= link_to("マイページ", "/users/#{current_user.id}") %>
+          </div>
+          <div class="item">
+            <%= link_to("ログアウト", "/users/sign_out", method: :delete, data: {confirm: "本当にログアウトしますか？"}) %>
+          </div>
+        <% else %>
+          <div class="item">
+            <%= link_to("新規登録", "/users/sign_up") %>
+          </div>
+          <div class="item">
+            <%= link_to("ログイン", "/users/sign_in") %>
+          </div>
+        <% end %>
+    <!--<div class="item" data-value="male">Male</div>
+    <div class="item" data-value="female">Female</div> -->
+        </div>
+    </div>
+
+
+  </div>
 </header>

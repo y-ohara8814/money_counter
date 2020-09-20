@@ -16,3 +16,21 @@ thead, tbody {
 .field_with_errors{
   display: contents;
 }
+
+
+.money_amount, .zandaka {
+  font-size: 40px;
+}
+.spending_money_total {
+  font-size: 20px;
+}
+
+.minus {
+  color: red;
+}
+
+.table-wrapper, .button-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

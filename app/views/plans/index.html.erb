@@ -1,6 +1,7 @@
 <!-- グループに属しているユーザーのみ見られる　ここから-->
 <% if @belong_group_ids.present? %>
-    <div class="container bg ui center aligned">
+    <section class="bg">
+    <div class="container ui center aligned">
     <% if @user_match_flag == true %>
 
     <p><%= @group_name %>の月次プラン</p>
@@ -33,7 +34,7 @@
         <% end %>
 
         <%if @chart.present?%>
-            <div class="container">
+            <div class="chart">
                 <div id="chart">
                     <%= pie_chart @chart %>
                 </div>
@@ -89,8 +90,14 @@
 <!-- グループに属してないユーザーに対して見せる　ここまで-->
     <% end %>
 </div>
+</section>
 <% end %>
 
+<div class="ui one column stackable center aligned page grid">
+   <div class="column twelve wide">
+       Your stuff here
+   </div>
+</div>
 
 
 <hr>

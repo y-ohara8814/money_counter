@@ -1,13 +1,13 @@
 <header>
   <div class="ui three column stackable grid container">
     <div class="column header-logo">
-        <%= link_to("Money Counter", "/") %>
+        <%= link_to("Atonanbo", "/") %>
     </div>
 
     <% if user_signed_in? %>
 
     <div class="column" id="current_user">
-      <%= current_user.name %>さん(ユーザーID：<%= current_user.id%>)
+      <%= current_user.name %>さん<br>(ユーザーID：<%= current_user.id%>)
     </div>
     <%end%>
     <div class="column ui inverted dropdown aligned right">

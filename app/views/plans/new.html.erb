@@ -1,11 +1,15 @@
 <% if @user_match_flag == true %>
-
-    <h1>プランの新規登録</h1>
-
-    <%= form_with(model:@plan, local: true, id: 'new_plan', url: confirm_group_plans_path ) do |f| %>
-        <%= f.hidden_field :group_id, :value => @group.id %>
-        <%= render partial: "form", locals: {f: f}%>
-    <% end %>
+<section class="bg">
+    <div class="container ui center aligned">
+        <h1>プランの新規登録</h1>
+        <div class="ui form">
+            <%= form_with(model: @plan, local: true, id: "new_plan", url: confirm_group_plans_path) do |f| %>
+                <%= f.hidden_field :group_id, :value => @group.id %>
+                <%= render partial: "form", locals: { f: f } %>
+            <% end %>
+        </div>
 <% else %>
-    <%= render partial: "user_unmached"%>
+    <%= render partial: "user_unmached" %>
 <% end %>
+    </div>
+</section>

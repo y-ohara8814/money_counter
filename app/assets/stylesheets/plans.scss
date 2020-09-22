@@ -28,9 +28,16 @@ thead, tbody {
 .minus {
   color: red;
 }
-
+.ui.button {
+  vertical-align: bottom;
+  margin-left: 20px;
+}
 .table-wrapper, .button-wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ui.items p{
+  font-size: 20px;
 }

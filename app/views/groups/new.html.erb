@@ -1,25 +1,30 @@
-<%= form_with(model: @group, url: groups_path, local: true) do |f| %>
-  <div>
-    <p>グループ名</p>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <% if @group.errors.include?(:name) %>
-         <p style="color: red;"><%= @group.errors.full_messages_for(:name).first %>
-　  <% end %>
-  </div>
-  <br>
-  <p>所属するメンバー</p>
-   <div class="field">
-    <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name, checked: current_user.id, include_hidden: false) do |t|  %>
-      <% t.label { t.check_box + t.text } %>
-    <% end %>
-  </div>
-  <div>
-    <% if @group.errors.include?(:user_ids) %>
-         <p style="color: red;"><%= @group.errors.full_messages_for(:user_ids).first %>
-　  <% end %>
-  </div>
-   <br>
-  <%= f.submit %>
-<% end %>
+<section class="bg">
+
+<div class="ui form">
+  <%= form_with(model: @group, url: groups_path, local: true) do |f| %>
+    <div>
+      <p>グループ名</p>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <% if @group.errors.include?(:name) %>
+          <p style="color: red;"><%= @group.errors.full_messages_for(:name).first %>
+  　  <% end %>
+    </div>
+    <br>
+    <p>所属するメンバー</p>
+    <div class="checkbox-wrapper field">
+      <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name, checked: current_user.id, include_hidden: false) do |t|  %>
+        <% t.label { t.check_box + t.text } %>
+      <% end %>
+    </div>
+    <div>
+      <% if @group.errors.include?(:user_ids) %>
+          <p style="color: red;"><%= @group.errors.full_messages_for(:user_ids).first %>
+  　  <% end %>
+    </div>
+    <br>
+    <%= f.submit "グループを作成する"%>
+  <% end %>
+</div>
+</section>

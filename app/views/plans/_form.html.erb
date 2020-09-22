@@ -6,11 +6,12 @@
      <p style="color: red;"><%= @plan.errors.full_messages_for(:money_amount).first %>
 　   <% end %>
     <br>
-    <%= f.text_field :money_amount, id: "money_amount" %>円
+    <%= f.text_field :money_amount, id: "money_amount" %>
   </div>
+  <br>
   <div>
-    <%= f.label :title, "対象の年" %>
-    <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], {include_blank: "選択して下さい"}, {id: 'year'} %>年
+    <%= f.label(:title,"対象の年", value: "year") %>
+    <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], {include_blank: "選択して下さい"}, {id: 'year'} %>
     <br>
     <%= f.label :title, "対象の月" %>
     <%= f.select :month, [["1", "1"],
@@ -25,7 +26,7 @@
                          ["10", "10"],
                          ["11", "11"],
                          ["12", "12"]],
-                        {include_blank: "選択して下さい"}, {id: 'month'} %>月
+                        {include_blank: "選択して下さい"}, {id: 'month'} %>
     <div>
       <% if @plan.errors.include?(:month) %>
         <p style="color: red;"><%= @plan.errors.full_messages_for(:month).first %>
@@ -33,30 +34,31 @@
     </div>
   </div>
   <br>
-  <%= f.label :title, "用途の選択肢設定" %>
 
-
-
-  <div>
-  <%= f.label :title, "選択肢１" %>
-  <%= f.text_field :choice1, id: "choice1" %>
-  <% if @plan.errors.include?(:choice1) %>
-     <p style="color: red;"><%= @plan.errors.full_messages_for(:choice1).first %>
-　<% end %>
-  </div>
-  <div>
-  <%= f.label :title, "選択肢２" %>
-  <%= f.text_field :choice2, id: "choice2" %>
-  <% if @plan.errors.include?(:choice2) %>
-     <p style="color: red;"><%= @plan.errors.full_messages_for(:choice2).first %>
-　<% end %>
-  </div>
-  <div>
-  <%= f.label :title, "選択肢３" %>
-  <%= f.text_field :choice3, id: "choice3" %>
-  <% if @plan.errors.include?(:choice3) %>
-     <p style="color: red;"><%= @plan.errors.full_messages_for(:choice3).first %>
-　<% end %>
+  <div class="choice-wrapper">
+      <p>利用用途の選択肢設定</p>
+      <br>
+    <div>
+      <%= f.label :title, "選択肢１" %>
+      <%= f.text_field :choice1, id: "choice1" %>
+      <% if @plan.errors.include?(:choice1) %>
+        <p style="color: red;"><%= @plan.errors.full_messages_for(:choice1).first %>
+    　<% end %>
+    </div>
+    <div>
+      <%= f.label :title, "選択肢２" %>
+      <%= f.text_field :choice2, id: "choice2" %>
+      <% if @plan.errors.include?(:choice2) %>
+        <p style="color: red;"><%= @plan.errors.full_messages_for(:choice2).first %>
+    　<% end %>
+    </div>
+    <div>
+      <%= f.label :title, "選択肢３" %>
+      <%= f.text_field :choice3, id: "choice3" %>
+      <% if @plan.errors.include?(:choice3) %>
+        <p style="color: red;"><%= @plan.errors.full_messages_for(:choice3).first %>
+    　<% end %>
+    </div>
   </div>
   <br>
   <%= f.submit "確認画面へ"%>

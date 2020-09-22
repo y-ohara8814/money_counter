@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
 
     def show
-        @user = User.find(params[:id])
+        if(params[:id].present?)
+            @user = User.find(params[:id])
+        else
+            @user = User.find(current_user.id)
+        end
         @belong_group_id = current_user.groups.ids
         if @belong_group_id.present?
             @groups = Group.find([@belong_group_id])

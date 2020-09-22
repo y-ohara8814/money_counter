@@ -1,5 +1,5 @@
 <p>該当する月のプランが存在しません</p>
 
 <% if past_date_flag == false %>
-    <%= link_to("プランを作成しましょう！", "/groups/#{group.id}/plans/new")%>
+    <%= link_to("プランを作成しましょう！", "/groups/#{group.id}/plans/new", :class=>"ui blue button")%>
 <% end %>

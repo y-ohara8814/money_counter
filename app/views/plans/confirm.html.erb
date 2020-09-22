@@ -1,33 +1,59 @@
-<h1>プラン作成内容確認</h1>
-<p><%= @plan.year %>年<%= @plan.month %>月の</p>
-<p>目標金額は、</p>
-<p><%= @plan.money_amount %></p>
-<p>用途選択肢は、</p>
-<p>1:<%= @plan.choice1 %></p>
-<p>2:<%= @plan.choice2 %></p>
-<p>3:<%= @plan.choice3 %></p>
-<li>
-<%= form_with(model: @plan, local: true, url: back_group_plans_path ) do |f| %>
-    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
-    <%= f.hidden_field :year, :value => @plan.year %>
-    <%= f.hidden_field :month, :value => @plan.month %>
-    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
-    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
-    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
+<section class="bg">
 
-    <%= f.submit "入力画面へ戻る" %>
-<% end%>
-</li>
-<li>
-<%= form_with(model: @plan, local: true, url: create_group_plans_path ) do |f| %>
-    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
-    <%= f.hidden_field :year, :value => @plan.year %>
-    <%= f.hidden_field :month, :value => @plan.month %>
-    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
-    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
-    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
-    <%= f.hidden_field :group_id, :value => @group.id %>
+    <div class="container">
+        <div class="ui items">
+            <div class="item">
+                <a class="ui medium image">
+                <%= image_tag 'money_image.jpg' %>
+                </a>
+            <div class="content">
+                <h1>プラン作成内容確認</h1>
+            <div class="description">
+                <p><i class="calendar check icon"></i><%= @plan.year %>年<%= @plan.month %>月</p>
+                <h3>目標金額</h3>
+                <p><i class="yen sign icon"></i><%= @plan.money_amount %></p>
+                <h3>用途選択肢</h3>
+                <p><i class="hand point right outline icon"></i>1:<%= @plan.choice1 %></p>
+                <p><i class="hand point right outline icon"></i>2:<%= @plan.choice2 %></p>
+                <p><i class="hand point right outline icon"></i>3:<%= @plan.choice3 %></p>
+            </div>
+            </div>
+        </div>
+    </div>
+        <!--<h1>プラン作成内容確認</h1>
+        <p><%= @plan.year %>年<%= @plan.month %>月の</p>
+        <p>目標金額は、</p>
+        <p><%= @plan.money_amount %></p>
+        <p>用途選択肢は、</p>
+        <p>1:<%= @plan.choice1 %></p>
+        <p>2:<%= @plan.choice2 %></p>
+        <p>3:<%= @plan.choice3 %></p> -->
+        <div class="button-wrapper">
+            <li>
+                <%= form_with(model: @plan, local: true, url: back_group_plans_path ) do |f| %>
+                    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+                    <%= f.hidden_field :year, :value => @plan.year %>
+                    <%= f.hidden_field :month, :value => @plan.month %>
+                    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
+                    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
+                    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
 
-    <%= f.submit "登録する" %>
-<% end%>
-</li>
+                    <%= f.submit "入力画面へ戻る" %>
+                <% end%>
+                </li>
+                <li>
+                <%= form_with(model: @plan, local: true, url: create_group_plans_path ) do |f| %>
+                    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+                    <%= f.hidden_field :year, :value => @plan.year %>
+                    <%= f.hidden_field :month, :value => @plan.month %>
+                    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
+                    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
+                    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
+                    <%= f.hidden_field :group_id, :value => @group.id %>
+
+                    <%= f.submit "登録する" %>
+                <% end%>
+            </li>
+        </div>
+    </div>
+</section>

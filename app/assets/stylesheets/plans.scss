@@ -17,6 +17,9 @@ thead, tbody {
   display: contents;
 }
 
+// input[type="submit"] {
+//   width: 50%;
+// }
 
 .money_amount, .zandaka {
   font-size: 40px;
@@ -39,5 +42,14 @@ thead, tbody {
 }
 
 .ui.items p{
+  font-size: 20px;
+}
+
+.money_amount{
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.ym-info > span{
   font-size: 20px;
 }

@@ -61,4 +61,7 @@
     </div>
   </div>
   <br>
-  <%= f.submit "確認画面へ"%>
+  <div class="button-wrapper">
+    <%= link_to("戻る", :back ,:class=>"ui green button")%>
+    <%= f.submit "確認画面へ", :class=>"ui blue button"%>
+  </div>

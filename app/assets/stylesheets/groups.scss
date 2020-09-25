@@ -8,6 +8,7 @@
     align-items: center;
   }
 
+
   .checkbox-wrapper{
     margin: 0 0 10px 20px;
   }
@@ -16,6 +17,19 @@
     transform:scale(1.5);
     margin: 5px 20px 20px 0;
   }
+  // input[type="submit"] {
+  //   width: 100%;
+  // }
+  .submit.ui.button{
+    padding: 10px
+  }
+
+  .button-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 
 
 /* ラベルのスタイル　*/

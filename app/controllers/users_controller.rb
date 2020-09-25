@@ -13,7 +13,7 @@ class UsersController < ApplicationController
             @groups = Group.find([@belong_group_id])
         end
         if params[:id] != current_user.id
-            flash.now.alert = "ご自分のユーザー情報のみご覧いただけます"
+            flash.now.alert = "ご自身のユーザー情報のみご覧いただけます"
         end
     end
 end

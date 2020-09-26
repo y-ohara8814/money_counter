@@ -22,5 +22,8 @@ module MoneyCounter
       helper_specs: false,
       routing_specs: false
     end
+
+    #20200927
+    config.i18n.default_locale = :ja
   end
 end

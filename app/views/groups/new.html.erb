@@ -25,7 +25,7 @@
     </div>
     <br>
     <div class="button-wrapper">
-      <%= link_to("戻る", :back ,:class=>"ui green button")%>
+      <%= link_to "戻る", 'javascript:history.back()',:class=>"ui green button" %>
       <%= f.submit "グループ作成",:class=>"ui blue button"%>
     </div>
   <% end %>

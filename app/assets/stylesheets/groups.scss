@@ -25,11 +25,19 @@
   }
 
   .button-wrapper{
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .button-wrapper > a{
+    width: 120px;
+  }
+
+  .button-wrapper > input[type="submit"] {
+    width: 120px;
+  }
 
 
 /* ラベルのスタイル　*/

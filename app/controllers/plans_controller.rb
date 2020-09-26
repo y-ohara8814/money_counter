@@ -109,7 +109,14 @@ class PlansController < ApplicationController
     end
 
     def edit_confirm
-        @plan = Plan.new(plan_params)
+        @plan = Plan.find(params[:id])
+        @plan.money_amount = plan_params[:money_amount]
+        @plan.year = plan_params[:year]
+        @plan.month = plan_params[:month]
+        @plan.choice1 = plan_params[:choice1]
+        @plan.choice2 = plan_params[:choice2]
+        @plan.choice3 = plan_params[:choice3]
+        @plan.group_id = plan_params[:group_id]
         find_group()
         @edit_flg = params[:edit_flg]
         return if @plan.valid?

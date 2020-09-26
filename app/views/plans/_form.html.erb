@@ -9,6 +9,7 @@
     <%= f.text_field :money_amount, id: "money_amount" %>
   </div>
   <br>
+  <% if @plan.blank? %>
   <div>
     <%= f.label(:title,"対象の年", value: "year") %>
     <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], {include_blank: "選択して下さい"}, {id: 'year'} %>
@@ -33,6 +34,8 @@
   　  <% end %>
     </div>
   </div>
+  <%end%>
+
   <br>
 
   <div class="choice-wrapper">
@@ -63,6 +66,7 @@
   <br>
   <div class="button-wrapper">
     <!--<%= link_to("戻る", :back ,:class=>"ui green button")%> -->
-    <%= link_to "戻る", 'javascript:history.back()',:class=>"ui green button" %>
+    <!-- <%= link_to "戻る", 'javascript:history.back()',:class=>"ui green button" %> -->
+    <%= link_to("戻る", "/groups/#{@group.id}/plans/", :class=>"ui green button") %>
     <%= f.submit "確認画面へ", :class=>"ui blue button"%>
   </div>

@@ -1,35 +1,44 @@
-<h2>ユーザーの詳細ページ</h2>
+<section class="bg">
+    <div class="container ui center aligned">
+        <h2 class="title ui center aligned"><%= current_user.name %>さんのマイページ</h2>
 
-<%= current_user.name %>さん
+<%= @group_array %>
 
-<!-- 所属するグループIDがある場合 -->
-<% if @groups.present? %>
-<table border='1' class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th>所属しているグループ</th>
-            <th>グループのメンバー</th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @groups.each do |group|%>
-        <tr>
-            <td><%= link_to(group.name, "/groups/#{group.id}/plans") %></td>
-            <% group.users.each do |user| %>
-            <td><%= user.name %></td>
-            <% end %>
-        </tr>
-    <% end %>
-    </tbody>
-</table>
-<!-- 所属するグループIDがない場合-->
-<% else %>
-<p>ようこそ。まずはプラン設定のため、グループを作成しましょう</p>
-<%= link_to "グループ作成", "/groups/new" %>
+        <!-- 所属するグループIDがある場合 -->
+        <% if @groups.present? %>
+        <div class="table-wrapper">
+            <table border='1' class="ui center aligned striped table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="three wide">所属しているグループ</th>
+                        <th class="seven wide"><i class="user icon"></i>メンバー</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @groups.each do |group|%>
+                    <tr>
+                        <td class="three wide"><%= link_to(group.name, "/groups/#{group.id}/plans") %></td>
+                        <!--<% group.users.each do |user| %>
+                            <td class="four wide"><%= user.name %></td>
+                        <% end %> -->
+                        <td class="seven wide">
+                            <% group.users.each do |user| %>
+                                <%= user.name %>さん
+                            <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+        <!-- 所属するグループIDがない場合-->
+        <% else %>
+        <p>ようこそ。まずはプラン設定のため、グループを作成しましょう</p>
+        <%= link_to "グループ作成", "/groups/new" %>
 
-<% end %>
-    <br>
-        <br>
-
-
+        <% end %>
+            <br>
+            <br>
+    </div>
+</section>
 

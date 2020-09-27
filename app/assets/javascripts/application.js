@@ -10,11 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require Chart.bundle
 //= require chartkick
+//= require semantic-ui
+//= require_tree .
 
 function check(){
     //プラン新規作成画面の、設定金額の値を取得
@@ -34,6 +36,12 @@ function check(){
 //         alert("クリックされた！");
 //       };
 // });
+function akaji_check(){
+    var zandaka = $("#zandaka").data('value');
+    if(zandaka < 0){
+        $('#zandaka').addClass('minus');
+    }
+}
 
  document.addEventListener('turbolinks:load',function(){
     var checkOption = document.getElementsByName('usage[purpose]');
@@ -51,6 +59,11 @@ function check(){
         });
     });
 
+$('.ui.dropdown')
+.dropdown()
+;
+
+akaji_check();
 
  });
 

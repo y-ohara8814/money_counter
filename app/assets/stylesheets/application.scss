@@ -13,11 +13,25 @@
  *= require_tree .
  *= require_self
  */
- .container {
-    width: 80%;
-    margin: 20px auto;
+ @import "semantic-ui";
+
+//  .container {
+//     width: 80%;
+//     margin: 20px auto;
+//   }
+
+  .container{
+    width: 100%;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
   }
-  
+ .bg {
+    background-image: url("calculator.jpg");
+    background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+  }
+
   input, textarea {
     box-sizing: border-box;
     width: 400px;
@@ -27,16 +41,15 @@
   input[type="checkbox"] {
     width: 15px;
   }
-  
+
   input[type="submit"] {
-    background-color: #FF5D57;
+    // background-color: blue;
     border-radius: 5px;
     color: white;
     padding: 10px;
     text-align: center;
-    width: 150px;
   }
-  
+
   textarea {
     height: 120px;
   }
@@ -44,24 +57,25 @@
   ul {
     margin: 0px;
   }
-  
+
   li {
     list-style: none;
     float: left;
     padding-right: 10px;
   }
-  
+
   header {
     padding: 15px;
-    background-color: #FF5D57;
-    color: #fff;
-    height: 20px;
+    background-color: #57cafff6;
+    color: rgb(27, 26, 26);
+    height: 60px;
+    font-size: 20px;
   }
-  
+
   header a {
-    color: #fff;
+    color: rgb(27, 26, 26);
   }
-  
+
   .header-logo {
     float: left;
     padding-right: 20px;
@@ -70,3 +84,13 @@
   .header-logo a {
     text-decoration: none;
   }
+
+
+
+  .ui.table{
+    width: 70%;
+  }
+
+
+
+

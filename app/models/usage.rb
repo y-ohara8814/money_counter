@@ -2,10 +2,10 @@ class Usage < ApplicationRecord
     belongs_to :group, optional: true
     belongs_to :user
 
-    validates :spending_money, presence: true
-    validates :date, presence: true
-    validates :purpose, presence: true
-    validates :plan_id, presence: true
+    validates :spending_money, presence: {message: "入力必須です"}
+    validates :date, presence: {message: "入力必須です"}
+    validates :purpose, presence: {message: "入力必須です"}
+    validates :plan_id, presence: {message: "入力必須です"}
 
     attr_accessor :purpose_text
     before_save :check_purpose_text

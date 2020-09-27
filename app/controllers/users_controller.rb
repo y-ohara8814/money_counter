@@ -3,13 +3,17 @@ class UsersController < ApplicationController
 
 
     def show
-        @user = User.find(params[:id])
+        if(params[:id].present?)
+            @user = User.find(params[:id])
+        else
+            @user = User.find(current_user.id)
+        end
         @belong_group_id = current_user.groups.ids
         if @belong_group_id.present?
             @groups = Group.find([@belong_group_id])
         end
         if params[:id] != current_user.id
-            flash.now.alert = "ご自分のユーザー情報のみご覧いただけます"
+            flash.now.alert = "ご自身のユーザー情報のみご覧いただけます"
         end
     end
 end

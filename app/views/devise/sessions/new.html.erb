@@ -1,13 +1,16 @@
-<h2>Log in</h2>
+<section class="bg">
+<div class="container ui left aligned">
+<h2>ユーザーログイン</h2>
 
+<div class="ui form">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="required field">
+    <%= f.label :email, 'Eメール' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
+  <div class="required field">
+    <%= f.label :password, 'パスワード'%><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -19,10 +22,17 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", :class=>"ui red button" %>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class=>"ui green button" %>
   </div>
+  <div>
+<%= render "devise/shared/links" %>
+</div>
 <% end %>
 
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
 
-<%= render "devise/shared/links" %>
+
+</div>
+
+</div>
+</section>

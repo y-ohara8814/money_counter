@@ -1,16 +1,22 @@
 <% if @user_match_flag == true %>
+<section class="bg">
+    <div class="container ui center aligned">
+        <h1>プランの編集</h1>
+        <h1>対象プラン<i class="hand point right outline icon"></i><%= @plan.year%>年<%= @plan.month%>月</h1>
+        <div class="ui form">
 
-    <h1>プランの編集</h1>
+        <%= form_with(model:@plan, local: true, id: 'edit_plan', url: edit_confirm_group_plan_path, method: :post ) do |f| %>
+            <%= f.hidden_field :group_id, :value => @group.id %>
+            <%= f.hidden_field :year, :value => @plan.year %>
+            <%= f.hidden_field :month, :value => @plan.month %>
+            <%= f.hidden_field :edit_flg, :value => true %>
 
-    <p>編集対象プラン：<%= @plan.year%>年<%= @plan.month%>月</p>
+        <%= render partial: "form", locals: {f: f}%>
 
-    <%= form_with(model:@plan, local: true, id: 'edit_plan', url: edit_confirm_group_plan_path, method: :post ) do |f| %>
-        <%= f.hidden_field :group_id, :value => @group.id %>
-        <%= f.hidden_field :edit_flg, :value => true %>
-
-    <%= render partial: "form", locals: {f: f}%>
-
-    <% end %>
+        <% end %>
+        </div>
 <% else %>
-    <%= render partial: "user_unmached"%>
+        <%= render partial: "user_unmached"%>
+    </div>
+</section>
 <% end %>

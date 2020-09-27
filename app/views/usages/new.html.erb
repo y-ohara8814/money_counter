@@ -1,59 +1,69 @@
 <section class="bg">
-    <div class="container ui center aligned">
-        <h3 ><%= @plan.year %>年<%= @plan.month %>月のプラン</h3>
-
-        <div class="ui form">
-            <%= form_with(model: @usage, local: true, name: "usage_form", id: "usage", url: create_usage_path) do |f| %>
-                <%= f.hidden_field :plan_id, :value => @plan.id %>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
-            <div>
-                <%= f.label :date, "使った日" %>
-                <%= f.date_field :date, id: "date" %>
-            </div>
-            <div>
-                <% if @usage.errors.include?(:date) %>
-                    <p style="color: red;"><%= @usage.errors.full_messages_for(:date).first %>
-            　       <% end %>
-            </div>
-            <div>
-                <%= f.label :spending_money, "使った金額" %>
-                <%= f.text_field :spending_money, id: "spending_money" %>
-            </div>
-            <div>
-                <% if @usage.errors.include?(:spending_money) %>
-                    <p style="color: red;"><%= @usage.errors.full_messages_for(:spending_money).first %>
-            　       <% end %>
-            </div>
-            <div>
-                <%= f.label :purpose, "用途" %>
-                <% if @usage.errors.include?(:purpose) %>
-                    <p style="color: red;"><%= @usage.errors.full_messages_for(:purpose).first %>
-            　   <% end %>
-            </div>
-            <div class="ui list">
-                <div class="item">
-                    <%= f.radio_button :purpose, @plan.choice1, { style: "width: 40px" } %>
-                    <%= f.label :choice1, @plan.choice1, { style: "display: inline-block;" } %>
+    <div class="container">
+        <h3>利用金額登録（<%= @plan.year %>年<%= @plan.month %>月のプラン）</h3>
+        <div class="ui items">
+            <div class="item">
+                <a class="ui medium image">
+                    <%= image_tag 'shopping_image.jpg'%>
+                </a>
+                <div class="content">
+                    <div class="description">
+                        <div class="ui form">
+                            <%= form_with(model: @usage, local: true, name: "usage_form", id: "usage", url: create_usage_path) do |f| %>
+                                <%= f.hidden_field :plan_id, :value => @plan.id %>
+                                <%= f.hidden_field :user_id, :value => current_user.id %>
+                            <div class="field">
+                                <%= f.label :date, "使った日" %>
+                                <%= f.date_field :date, id: "date" %>
+                            </div>
+                            <div>
+                                <% if @usage.errors.include?(:date) %>
+                                    <p style="color: red;"><%= @usage.errors.full_messages_for(:date).first %>
+                            　       <% end %>
+                            </div>
+                            <div>
+                                <%= f.label :spending_money, "使った金額" %>
+                                <%= f.text_field :spending_money, id: "spending_money" %>
+                            </div>
+                            <div>
+                                <% if @usage.errors.include?(:spending_money) %>
+                                    <p style="color: red;"><%= @usage.errors.full_messages_for(:spending_money).first %>
+                            　       <% end %>
+                            </div>
+                            <div>
+                                <%= f.label :purpose, "用途" %>
+                                <% if @usage.errors.include?(:purpose) %>
+                                    <p style="color: red;"><%= @usage.errors.full_messages_for(:purpose).first %>
+                            　   <% end %>
+                            </div>
+                            <div class="ui list">
+                                <div class="item">
+                                    <%= f.radio_button :purpose, @plan.choice1, { style: "width: 40px" } %>
+                                    <%= f.label :choice1, @plan.choice1, { style: "display: inline-block;" } %>
+                                </div>
+                                <div class="item">
+                                    <%= f.radio_button :purpose, @plan.choice2, { style: "width: 40px" } %>
+                                    <%= f.label :choice2, @plan.choice2, { style: "display: inline-block;" } %>
+                                </div>
+                                <div class="item">
+                                    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px" } %>
+                                    <%= f.label :choice3, @plan.choice3, { style: "display: inline-block;" } %>
+                                </div>
+                                <div class="item">
+                                    <%= f.radio_button :purpose, :other, { id: "purpose_other", style: "width: 40px" } %>
+                                    <%= f.label :other, "その他", { style: "display: inline-block;" } %>
+                                    <%= f.text_field :purpose_text, {id: "purpose_text", class: "purpose_text",style: "display: none",disabled: true} %>
+                                </div>
+                            </div>
+                            <div class="button-wrapper">
+                                <%= link_to("戻る", "/groups/#{@group.id}/plans/", :class=>"ui green button") %>
+                                <%= f.submit "利用金額登録", data: { confirm: "登録してよろしいですか？" }, :class=>"ui blue button" %>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
                 </div>
-                <div class="item">
-                    <%= f.radio_button :purpose, @plan.choice2, { style: "width: 40px" } %>
-                    <%= f.label :choice2, @plan.choice2, { style: "display: inline-block;" } %>
-                </div>
-                <div class="item">
-                    <%= f.radio_button :purpose, @plan.choice3, { style: "width: 40px" } %>
-                    <%= f.label :choice3, @plan.choice3, { style: "display: inline-block;" } %>
-                </div>
-                <div class="item">
-                    <%= f.radio_button :purpose, :other, { id: "purpose_other", style: "width: 40px" } %>
-                    <%= f.label :other, "その他", { style: "display: inline-block;" } %>
-                    <%= f.text_field :purpose_text, {id: "purpose_text", class: "purpose_text",style: "display: none",disabled: true} %>
-                </div>
             </div>
-            <div class="button-wrapper">
-                <%= link_to("戻る", "/groups/#{@group.id}/plans/", :class=>"ui green button") %>
-                <%= f.submit "利用金額登録", data: { confirm: "登録してよろしいですか？" }, :class=>"ui blue button" %>
-            </div>
-            <% end %>
         </div>
     </div>
 </section>

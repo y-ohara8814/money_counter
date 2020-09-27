@@ -14,5 +14,16 @@ module MoneyCounter
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    #20200725
+    config.generators do |g|
+      g.test_framework :rspec,
+      view_specs: false,
+      helper_specs: false,
+      routing_specs: false
+    end
+
+    #20200927
+    config.i18n.default_locale = :ja
   end
 end

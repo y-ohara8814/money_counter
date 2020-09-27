@@ -1,0 +1,33 @@
+<section class="bg">
+
+<div class="ui form">
+  <%= form_with(model: @group, url: groups_path, local: true) do |f| %>
+    <div>
+      <h3 class="center aligned"><i class="users icon"></i>グループ名</h3>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <% if @group.errors.include?(:name) %>
+          <p style="color: red;"><%= @group.errors.full_messages_for(:name).first %>
+  　  <% end %>
+    </div>
+    <br>
+    <h3 class="center aligned"><i class="user plus icon"></i>所属するメンバー</h3>
+    <div class="checkbox-wrapper field">
+      <%= collection_check_boxes(:group, :user_ids, User.all, :id, :name, checked: current_user.id, include_hidden: false) do |t|  %>
+        <% t.label { t.check_box + t.text } %>
+      <% end %>
+    </div>
+    <div>
+      <% if @group.errors.include?(:user_ids) %>
+          <p style="color: red;"><%= @group.errors.full_messages_for(:user_ids).first %>
+  　  <% end %>
+    </div>
+    <br>
+    <div class="button-wrapper">
+      <%= link_to "戻る", 'javascript:history.back()',:class=>"ui green button" %>
+      <%= f.submit "グループ作成",:class=>"ui blue button"%>
+    </div>
+  <% end %>
+</div>
+</section>

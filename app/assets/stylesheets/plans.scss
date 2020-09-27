@@ -1,0 +1,63 @@
+// Place all the styles related to the plans controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+thead, tbody {
+    display: block;
+  }
+  tbody {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 250px;
+  }
+  th, td {
+    width: 100px; min-width: 100px;
+  }
+
+.field_with_errors{
+  display: contents;
+}
+
+// input[type="submit"] {
+//   width: 50%;
+// }
+
+.money_amount, .zandaka {
+  font-size: 40px;
+}
+.spending_money_total {
+  font-size: 20px;
+}
+
+.minus {
+  color: red;
+}
+.ui.button {
+  vertical-align: bottom;
+  margin-left: 20px;
+}
+.table-wrapper, .button-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui.items p{
+  font-size: 20px;
+}
+
+.money_amount{
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.ym-info > span{
+  font-size: 20px;
+}
+
+.button-wrapper > a{
+  width: 120px;
+}
+
+.button-wrapper > input[type="submit"] {
+  width: 150px;
+}

@@ -1,0 +1,52 @@
+<section class="bg">
+    <div class="container">
+        <div class="ui items">
+            <div class="item">
+                <a class="ui medium image">
+                <%= image_tag 'edit_plan_image.jpg' %>
+                </a>
+                <div class="content">
+                    <h1>プラン編集内容確認</h1>
+                    <div class="description">
+                        <p><i class="calendar check icon"></i><%= @plan.year %>年<%= @plan.month %>月</p>
+                        <h3>目標金額</h3>
+                        <p><i class="yen sign icon"></i><%= @plan.money_amount %></p>
+                        <h3>用途選択肢</h3>
+                        <p><i class="hand point right outline icon"></i>1:<%= @plan.choice1 %></p>
+                        <p><i class="hand point right outline icon"></i>2:<%= @plan.choice2 %></p>
+                        <p><i class="hand point right outline icon"></i>3:<%= @plan.choice3 %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-wrapper">
+            <li>
+                <%= form_with(model: @plan, local: true, url: edit_back_group_plan_path, method: :post ) do |f| %>
+                    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+                    <%= f.hidden_field :year, :value => @plan.year %>
+                    <%= f.hidden_field :month, :value => @plan.month %>
+                    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
+                    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
+                    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
+                    <%= f.hidden_field :edit_flg, :value => true %>
+
+                    <%= f.submit "編集画面へ戻る",:class=>"back ui green button" %>
+                <% end%>
+                </li>
+                <li>
+                <%= form_with(model: @plan, local: true, url: group_plan_path, method: :patch ) do |f| %>
+                    <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
+                    <%= f.hidden_field :year, :value => @plan.year %>
+                    <%= f.hidden_field :month, :value => @plan.month %>
+                    <%= f.hidden_field :choice1, :value => @plan.choice1 %>
+                    <%= f.hidden_field :choice2, :value => @plan.choice2 %>
+                    <%= f.hidden_field :choice3, :value => @plan.choice3 %>
+                    <%= f.hidden_field :group_id, :value => @group.id %>
+
+                    <%= f.submit "編集する",:class=>"ui blue button" %>
+                <% end%>
+            </li>
+        </div>
+    </div>
+</section>

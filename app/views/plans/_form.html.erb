@@ -8,6 +8,11 @@
     <br>
     <%= f.text_field :money_amount, id: "money_amount" %>円
   </div>
+<<<<<<< Updated upstream
+=======
+  <br>
+  <% if @new_flag.present? %>
+>>>>>>> Stashed changes
   <div>
     <%= f.label :title, "対象の年" %>
     <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], {include_blank: "選択して下さい"}, {id: 'year'} %>年
@@ -32,6 +37,10 @@
   　  <% end %>
     </div>
   </div>
+<<<<<<< Updated upstream
+=======
+  <% end %>
+>>>>>>> Stashed changes
   <br>
   <%= f.label :title, "用途の選択肢設定" %>
 

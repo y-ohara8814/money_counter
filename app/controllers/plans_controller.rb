@@ -87,6 +87,7 @@ class PlansController < ApplicationController
     def new
         @plan = Plan.new
         @group = Group.find(params[:group_id])
+        @new_flag = true
     end
 
     def confirm
@@ -106,6 +107,7 @@ class PlansController < ApplicationController
     def edit
         @plan = Plan.find(params[:id])
         find_group()
+        @edif_flag = true
     end
 
     def edit_confirm

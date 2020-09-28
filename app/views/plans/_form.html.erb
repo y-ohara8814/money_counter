@@ -9,7 +9,7 @@
     <%= f.text_field :money_amount, id: "money_amount" %>
   </div>
   <br>
-  <% if @plan.blank? %>
+  <% if @new_flag.present? %>
   <div>
     <%= f.label(:title,"対象の年", value: "year") %>
     <%= f.select :year, [["2020", "2020"], ["2021", "2021"]], {include_blank: "選択して下さい"}, {id: 'year'} %>

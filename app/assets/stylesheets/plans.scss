@@ -45,10 +45,10 @@ thead, tbody {
   font-size: 20px;
 }
 
-.money_amount{
-  vertical-align: middle;
-  margin-right: 20px;
-}
+// .money_amount{
+//   vertical-align: middle;
+//   margin-right: 20px;
+// }
 
 .ym-info > span{
   font-size: 20px;
@@ -61,3 +61,7 @@ thead, tbody {
 .button-wrapper > input[type="submit"] {
   width: 150px;
 }
+.button-wrapper .confirm {
+  width: 150px;
+}
+

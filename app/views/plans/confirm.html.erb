@@ -38,7 +38,7 @@
                     <%= f.hidden_field :choice2, :value => @plan.choice2 %>
                     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
 
-                    <%= f.submit "入力画面へ戻る" ,:class=>"back ui green button"%>
+                    <%= f.submit "入力画面へ戻る" ,:class=>"confirm back ui green button"%>
                 <% end%>
                 </li>
                 <li>
@@ -51,7 +51,7 @@
                     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
                     <%= f.hidden_field :group_id, :value => @group.id %>
 
-                    <%= f.submit "登録する" ,:class=>"ui blue button"%>
+                    <%= f.submit "登録する" ,:class=>"confirm ui blue button"%>
                 <% end%>
             </li>
         </div>

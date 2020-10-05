@@ -14,6 +14,7 @@ https://atonanbo.herokuapp.com/users/sign_in
 プランでは、
 - 目標金額（月に幾らまで使えるか、予算のようなもの）
 - 利用用途（何に、幾ら使ったかを登録）
+
 を設定/登録していく、という使い方です。
 
 # 特徴
@@ -43,11 +44,17 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 →氏名、メールアドレス、パスワードを入力してユーザー登録。以降は、メールアドレス・パスワードでログイン
 
+![サンプル画像](https://user-images.githubusercontent.com/41667847/95087264-6eaab900-075c-11eb-9160-b70e29f4d28d.jpg)
+
+
 * ユーザーマイページ
 
-→ログインユーザーが所属しているグループの一覧と、同じグループに所属している他ユーザーの名前を表示
+→所属しているグループの一覧と、同じグループに所属している他ユーザーの名前を表示
 
 このページから、各グループで作成したプランの詳細画面へ遷移
+
+![サンプル画像](https://user-images.githubusercontent.com/41667847/95087775-12946480-075d-11eb-9554-81f31c26b90f.jpg)
+
 
 
 * グループ作成機能
@@ -65,6 +72,9 @@ https://atonanbo.herokuapp.com/users/sign_in
 
  グループ（１）：プラン（多）の関係
  
+ ![スクリーンショット 2020-10-05 22 50 44](https://user-images.githubusercontent.com/41667847/95087935-45d6f380-075d-11eb-8033-915d5fbbc845.jpg)
+
+ 
 * プラン表示機能
 
 →グループのメインページにおいて、プランの詳細を表示する。具体的には、
@@ -76,6 +86,11 @@ https://atonanbo.herokuapp.com/users/sign_in
  ・利用金額登録フォーム（後述）
  
  を表示する。
+ 
+ ![スクリーンショット 2020-10-05 22 51 57](https://user-images.githubusercontent.com/41667847/95088367-d1508480-075d-11eb-994d-9e198aca11c1.jpg)
+
+![スクリーンショット 2020-10-05 22 54 59](https://user-images.githubusercontent.com/41667847/95088596-1bd20100-075e-11eb-91c8-c74a83be1ca0.jpg)
+
 
 * 利用金額登録機能
 

@@ -104,6 +104,9 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 　を登録する。プラン（１）：利用金額（多）の関係
  
+ ![スクリーンショット 2020-10-06 8 35 54](https://user-images.githubusercontent.com/41667847/95142587-fcaf8f80-07ae-11eb-8f04-7f7e341de1fa.jpg)
+
+ 
 * 利用履歴表示機能
 →グループのメインページ内、プランの詳細として表示する。
 
@@ -114,3 +117,5 @@ https://atonanbo.herokuapp.com/users/sign_in
  ・用途
  
  ・使用した日
+
+![スクリーンショット 2020-10-06 8 37 53](https://user-images.githubusercontent.com/41667847/95142700-413b2b00-07af-11eb-99c8-70425cc221a0.jpg)

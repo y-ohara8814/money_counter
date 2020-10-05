@@ -88,11 +88,14 @@ class PlansController < ApplicationController
         @plan = Plan.new
         @group = Group.find(params[:group_id])
         @new_flag = true
+        @edit_flag = false
     end
 
     def confirm
         @plan = Plan.new(plan_params)
         @group = Group.find(params[:group_id])
+        @new_flag = true
+        @edit_flag = false
         return if @plan.valid?
         render :new
     end
@@ -100,6 +103,8 @@ class PlansController < ApplicationController
     def back
             @plan = Plan.new(plan_params)
             @group = Group.find(params[:group_id])
+            @new_flag = true
+            @edit_flag = false
             render :new
     end
 
@@ -107,7 +112,8 @@ class PlansController < ApplicationController
     def edit
         @plan = Plan.find(params[:id])
         find_group()
-        @edif_flag = true
+        @new_flag = false
+        @edit_flag = true
     end
 
     def edit_confirm
@@ -127,6 +133,8 @@ class PlansController < ApplicationController
 
     def edit_back
             @plan = Plan.new(plan_params)
+            @new_flag = false
+            @edit_flag = true
             find_group()
             render :edit
     end

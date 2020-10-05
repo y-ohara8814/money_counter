@@ -1,6 +1,6 @@
 <section class="bg">
     <div class="container">
-        <h3>利用金額登録（<%= @plan.year %>年<%= @plan.month %>月のプラン）</h3>
+        <h3 class="usage_title">利用金額登録（<%= @plan.year %>年<%= @plan.month %>月のプラン）</h3>
         <div class="ui items">
             <div class="item">
                 <a class="ui medium image">
@@ -57,7 +57,7 @@
                             </div>
                             <div class="button-wrapper">
                                 <%= link_to("戻る", "/groups/#{@group.id}/plans/", :class=>"ui green button") %>
-                                <%= f.submit "利用金額登録", data: { confirm: "登録してよろしいですか？" }, :class=>"ui blue button" %>
+                                <%= f.submit "利用金額登録", data: { confirm: "登録してよろしいですか？" }, :class=>"create ui blue button" %>
                             </div>
                             <% end %>
                         </div>

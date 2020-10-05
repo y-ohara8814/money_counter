@@ -1,6 +1,6 @@
 <section class="bg">
 <div class="container ui left aligned">
-<h2>ユーザーログイン</h2>
+<h2 class="user_login">ユーザーログイン</h2>
 
 <div class="ui form">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -21,9 +21,9 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "ログイン", :class=>"ui red button" %>
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class=>"ui green button" %>
+  <div class="button-wrapper">
+    <%= f.submit "ログイン", :class=>"login ui red button" %>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class=>"guest_login ui green button" %>
   </div>
   <div>
 <%= render "devise/shared/links" %>

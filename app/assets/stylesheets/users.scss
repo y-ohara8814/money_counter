@@ -1,9 +1,22 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+h2 {
+    &.user_regist, &.user_login{
+        text-align: center;
+    }
+}
 .table-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .button-wrapper {
+      .login {
+        width: 120px;
+      }
+      .guest_login {
+        width: 220px;
+      }
   }

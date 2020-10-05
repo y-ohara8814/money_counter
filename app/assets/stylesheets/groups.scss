@@ -17,47 +17,23 @@
     transform:scale(1.5);
     margin: 5px 20px 20px 0;
   }
-  // input[type="submit"] {
-  //   width: 100%;
-  // }
+
   .submit.ui.button{
     padding: 10px
   }
 
-  .button-wrapper{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  // .button-wrapper{
+  //   margin: 20px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 
-  .button-wrapper > a{
+
+  .button-wrapper {
+    .create {
     width: 120px;
-  }
-
-  .button-wrapper > input[type="submit"] {
-    width: 120px;
+    }
   }
 
 
-/* ラベルのスタイル　*/
-// .checkbox-wrapper label {
-// 	padding-left:		38px;			/* ラベルの位置 */
-// 	font-size:		32px;
-// 	line-height:		32px;
-// 	display:		inline-block;
-// 	cursor:			pointer;
-// 	position:		relative;
-// }
-
-/* ボックスのスタイル */
-// .checkbox-wrapper label:before {
-// 	width:			32px;			/* ボックスの横幅 */
-// 	height:			32px;			/* ボックスの縦幅 */
-// 	display:		inline-block;
-// 	position:		absolute;
-// 	left:			0;
-// 	background-color:	#fff;
-// 	box-shadow:		inset 1px 2px 3px 0px #000;
-// 	border-radius:		6px 6px 6px 6px;
-// }

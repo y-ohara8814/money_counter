@@ -29,7 +29,6 @@
         <p>2:<%= @plan.choice2 %></p>
         <p>3:<%= @plan.choice3 %></p> -->
         <div class="button-wrapper">
-            <li>
                 <%= form_with(model: @plan, local: true, url: back_group_plans_path ) do |f| %>
                     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
                     <%= f.hidden_field :year, :value => @plan.year %>
@@ -40,8 +39,6 @@
 
                     <%= f.submit "入力画面へ戻る" ,:class=>"confirm back ui green button"%>
                 <% end%>
-                </li>
-                <li>
                 <%= form_with(model: @plan, local: true, url: create_group_plans_path ) do |f| %>
                     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
                     <%= f.hidden_field :year, :value => @plan.year %>
@@ -53,7 +50,6 @@
 
                     <%= f.submit "登録する" ,:class=>"confirm ui blue button"%>
                 <% end%>
-            </li>
         </div>
     </div>
 </section>

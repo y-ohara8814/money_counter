@@ -35,33 +35,28 @@ thead, tbody {
   vertical-align: bottom;
   margin-left: 20px;
 }
-.table-wrapper, .button-wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.ui.items p{
+.ui.items {
+  p {
   font-size: 20px;
+  }
 }
 
-// .money_amount{
-//   vertical-align: middle;
-//   margin-right: 20px;
-// }
-
-.ym-info > span{
+.ym-info {
+  span{
   font-size: 20px;
+  }
 }
 
-.button-wrapper > a{
-  width: 120px;
-}
-
-.button-wrapper > input[type="submit"] {
-  width: 150px;
-}
-.button-wrapper .confirm {
-  width: 150px;
+.button-wrapper {
+  a {
+    width: 120px;
+  }
+  .confirm{
+    width: 150px;
+  }
+  .plans_index_back, .plans_index_new{
+    width: 220px;
+  }
 }
 

@@ -72,8 +72,10 @@
     font-size: 20px;
   }
 
-  header a {
-    color: rgb(27, 26, 26);
+  header {
+    a {
+      color: rgb(27, 26, 26);
+    }
   }
 
   .header-logo {
@@ -81,16 +83,28 @@
     padding-right: 20px;
   }
 
-  .header-logo a {
+  .header-logo {
+    a {
     text-decoration: none;
+    }
   }
-
-
 
   .ui.table{
     width: 70%;
   }
 
+  .table-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-wrapper{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
 

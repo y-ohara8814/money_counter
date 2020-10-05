@@ -17,26 +17,23 @@
     transform:scale(1.5);
     margin: 5px 20px 20px 0;
   }
-  // input[type="submit"] {
-  //   width: 100%;
-  // }
+
   .submit.ui.button{
     padding: 10px
   }
 
-  .button-wrapper{
-    margin: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  // .button-wrapper{
+  //   margin: 20px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 
-  .button-wrapper > a{
-    width: 120px;
-  }
 
-  .button-wrapper > input[type="submit"] {
+  .button-wrapper {
+    .create {
     width: 120px;
+    }
   }
 
 

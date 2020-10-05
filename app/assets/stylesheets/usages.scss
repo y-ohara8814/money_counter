@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h3.usage_title {
+h3 {
+&.usage_title {
     text-align: center;
     padding: 10px;
+    }
 }
+
+.button-wrapper {
+    .create {
+    width: 120px;
+    }
+  }

@@ -21,7 +21,6 @@
         </div>
 
         <div class="button-wrapper">
-            <li>
                 <%= form_with(model: @plan, local: true, url: edit_back_group_plan_path, method: :post ) do |f| %>
                     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
                     <%= f.hidden_field :year, :value => @plan.year %>
@@ -29,12 +28,10 @@
                     <%= f.hidden_field :choice1, :value => @plan.choice1 %>
                     <%= f.hidden_field :choice2, :value => @plan.choice2 %>
                     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
-                    <%= f.hidden_field :edit_flg, :value => true %>
+                    <%= f.hidden_field :edit_flag, :value => true %>
 
-                    <%= f.submit "編集画面へ戻る",:class=>"back ui green button" %>
+                    <%= f.submit "編集画面へ戻る",:class=>"confirm back ui green button" %>
                 <% end%>
-                </li>
-                <li>
                 <%= form_with(model: @plan, local: true, url: group_plan_path, method: :patch ) do |f| %>
                     <%= f.hidden_field :money_amount, :value => @plan.money_amount %>
                     <%= f.hidden_field :year, :value => @plan.year %>
@@ -44,9 +41,8 @@
                     <%= f.hidden_field :choice3, :value => @plan.choice3 %>
                     <%= f.hidden_field :group_id, :value => @group.id %>
 
-                    <%= f.submit "編集する",:class=>"ui blue button" %>
+                    <%= f.submit "編集する",:class=>"confirm ui blue button" %>
                 <% end%>
-            </li>
         </div>
     </div>
 </section>

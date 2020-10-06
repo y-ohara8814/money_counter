@@ -7,6 +7,9 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 # 動作デモ
 
+![result (1)](https://user-images.githubusercontent.com/41667847/95216297-db8d8400-082c-11eb-9539-c8fbf2191173.gif)
+
+
 # ポートフォリオ概要
 
 複数人でひとつの家計簿を運用するアプリケーションです。

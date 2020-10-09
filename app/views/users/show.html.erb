@@ -2,7 +2,7 @@
     <div class="container ui center aligned">
         <h2 class="title ui center aligned"><%= current_user.name %>さんのマイページ</h2>
 
-<%= @group_array %>
+        <%= @group_array %>
 
         <!-- 所属するグループIDがある場合 -->
         <% if @groups.present? %>
@@ -40,5 +40,28 @@
             <br>
             <br>
     </div>
+
 </section>
 
+
+        <h3 class="ui center aligned header">Doubling Stackable Grid</h3>
+        <div class="ui three column doubling stackable grid">
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+            <div class="column">
+                <div class="ui segment">Content</div>
+            </div>
+        </div>

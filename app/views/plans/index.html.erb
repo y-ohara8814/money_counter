@@ -96,12 +96,13 @@
 <hr>
 
 
-<div class="button-wrapper">
-    <li><%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}", :class=>"plans_index_back ui green button") %></li>
+<!--<div class="button-wrapper">-->
+<div class="ui center aligned two column stackable grid container">
+    <div class="column"><%= link_to("ユーザー詳細画面にもどる", "/users/#{current_user.id}", :class=>"ui green button") %></div>
     <!-- プランが存在する場合表示する　ここから-->
     <!-- かつ閲覧している人がグループに属するユーザーの場合のみ表示する　ここから-->
     <% if @date_match_flag != false && @user_match_flag == true && @current_date.year <= Date.today.year && @current_date.month == Date.today.month %>
-        <li><%= link_to("利用金額を登録する", "/groups/#{@group.id}/plans/#{@plan.id}/new", :class=>"plans_index_new ui blue button") %></li>
+        <div class="column"><%= link_to("利用金額を登録する", "/groups/#{@group.id}/plans/#{@plan.id}/new", :class=>"ui blue button") %></div>
     <% end %>
 </div>
 

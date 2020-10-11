@@ -20,18 +20,3 @@ h2 {
         width: 220px;
       }
   }
-
-// @media only screen and (max-width: 991px) and (min-width: 768px){
-//     .ui.doubling.grid {
-//         width: auto;
-//         }
-// }
-
-@media only screen and (max-width: 767px)
-{
-    .ui.stackable.grid {
-    width: auto;
-    margin-left: 0em !important;
-    margin-right: 0em !important;
-}
-}

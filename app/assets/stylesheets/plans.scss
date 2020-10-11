@@ -31,9 +31,9 @@ thead, tbody {
 .minus {
   color: red;
 }
-.ui.button {
+.user-regist.ui.button {
   vertical-align: bottom;
-  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .ui.items {
@@ -46,6 +46,10 @@ thead, tbody {
   span{
   font-size: 20px;
   }
+}
+
+.edit.ui.button {
+  margin-left: 20px;
 }
 
 .button-wrapper {

@@ -1,21 +1,23 @@
 <header>
-  <div class="ui three column stackable grid container">
+  <div class="ui two column grid container">
     <div class="column header-logo">
         <%= link_to("Atonanbo", "/") %>
     </div>
 
-    <% if user_signed_in? %>
+    <!--<% if user_signed_in? %>
 
     <div class="column" id="current_user">
       <%= current_user.name %>さん<br>(ユーザーID：<%= current_user.id%>)
     </div>
-    <%end%>
+    <%end%>-->
     <div class="column ui inverted dropdown aligned right">
         <input type="hidden" name="menu">
         <div class="default"><i class="list icon"></i></div>
         <div class="menu">
         <% if user_signed_in? %>
-
+          <div  class="item">
+            <%= current_user.name %>さん<br>(ユーザーID：<%= current_user.id%>)
+          </div>
           <div  class="item">
             <%= link_to("マイページ", "/users/#{current_user.id}") %>
           </div>
@@ -30,8 +32,6 @@
             <%= link_to("ログイン", "/users/sign_in") %>
           </div>
         <% end %>
-    <!--<div class="item" data-value="male">Male</div>
-    <div class="item" data-value="female">Female</div> -->
         </div>
     </div>
 

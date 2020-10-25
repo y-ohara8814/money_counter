@@ -31,6 +31,12 @@
     background-color:rgba(255,255,255,0.8);
     background-blend-mode:lighten;
   }
+ .bg.login {
+    background-image: url("login_page_image.jpg");
+    background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+    height: 300px;
+  }
 
   input, textarea {
     box-sizing: border-box;

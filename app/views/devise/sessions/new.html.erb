@@ -1,8 +1,8 @@
-<section class="bg">
+<section class="bg login">
   <div class="container ui left aligned">
     <h2 class="user_login">ユーザーログイン</h2>
 
-    <div class="ui two column stackable grid">
+    <div class="ui center aligned two column stackable grid container">
       <div class="fields">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="column required field">
@@ -15,20 +15,20 @@
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
 
-        <% if devise_mapping.rememberable? %>
+        <!--<% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
-        <% end %>
+        <% end %>-->
 
         <div class="button-wrapper">
           <%= f.submit "ログイン", :class=>"login ui red button" %>
           <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, :class=>"guest_login ui green button" %>
         </div>
-        <div>
+        <!--<div>
           <%= render "devise/shared/links" %>
-        </div>
+        </div>-->
       <% end %>
       </div>
     </div>

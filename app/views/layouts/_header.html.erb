@@ -1,6 +1,9 @@
 <header>
-  <div class="ui two column grid container">
-    <div class="column header-logo">
+  <div class="ui three column grid container">
+
+    <div class="three wide computer four wide tablet four wide mobile column"></div>
+    <!--<div class="column header-logo">-->
+    <div class="seven wide computer six wide tablet six wide mobile column header-logo">
         <%= link_to("Atonanbo", "/") %>
     </div>
 
@@ -10,7 +13,7 @@
       <%= current_user.name %>さん<br>(ユーザーID：<%= current_user.id%>)
     </div>
     <%end%>-->
-    <div class="column ui inverted dropdown aligned right">
+    <div class="six wide computer six wide tablet six wide mobile column ui inverted dropdown aligned right">
         <input type="hidden" name="menu">
         <div class="default"><i class="list icon"></i></div>
         <div class="menu">
@@ -34,6 +37,7 @@
         <% end %>
         </div>
     </div>
+
 
 
   </div>

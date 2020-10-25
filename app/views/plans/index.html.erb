@@ -4,7 +4,7 @@
     <div class="container ui center aligned">
     <% if @user_match_flag == true %>
 
-    <p><%= @group_name %>の月次プラン</p>
+    <p><%= @group.name %>の月次プラン</p>
     <div class="ui grid">
         <div class="column ym-info">
             <%= link_to(group_plans_path(datetime: @prev_month)) do %>

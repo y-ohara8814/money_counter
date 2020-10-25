@@ -6,7 +6,6 @@ class PlansController < ApplicationController
     #グループIDに紐づくプランを表示
     def index
         @group = Group.find_by(id: params[:group_id])
-        @group_name = Group.find_by(id: params[:group_id]).name
         @plan = Plan.find_by(group_id: params[:group_id])
         @plan_all = Plan.where(group_id: params[:group_id])
 

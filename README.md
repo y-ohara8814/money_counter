@@ -33,7 +33,7 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 # 利用技術
 ## サーバーサイド
-* Ruby ２．６．０
+* Ruby 2.6.0
 
 * Rails 5.2.4.3
 

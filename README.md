@@ -47,7 +47,7 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 →氏名、メールアドレス、パスワードを入力してユーザー登録。以降は、メールアドレス・パスワードでログイン
 
-![サンプル画像](https://user-images.githubusercontent.com/41667847/95087264-6eaab900-075c-11eb-9160-b70e29f4d28d.jpg)
+![スクリーンショット 2020-10-25 22 31 51](https://user-images.githubusercontent.com/41667847/97108716-85687e00-1712-11eb-9c7a-ca9941d72206.jpg)
 
 
 * ユーザーマイページ
@@ -56,8 +56,7 @@ https://atonanbo.herokuapp.com/users/sign_in
 
 このページから、各グループで作成したプランの詳細画面へ遷移
 
-![サンプル画像](https://user-images.githubusercontent.com/41667847/95087775-12946480-075d-11eb-9554-81f31c26b90f.jpg)
-
+![スクリーンショット 2020-10-25 22 34 33](https://user-images.githubusercontent.com/41667847/97108745-c2cd0b80-1712-11eb-8996-c02fa2d3d536.jpg)
 
 
 * グループ作成機能
@@ -66,7 +65,7 @@ https://atonanbo.herokuapp.com/users/sign_in
 
  グループ（１）：ユーザー（多）の関係
  
- ![サンプル画像](https://user-images.githubusercontent.com/41667847/94979361-22455a80-055d-11eb-9f4c-d1c5f706c431.jpg)
+ ![スクリーンショット 2020-10-25 22 34 56](https://user-images.githubusercontent.com/41667847/97108758-dc6e5300-1712-11eb-849b-6d346a657b3f.jpg)
 
  
 * プラン作成機能

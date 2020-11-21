@@ -18,9 +18,6 @@
                 <% @groups.each do |group|%>
                     <tr>
                         <td class="three wide"><%= link_to(group.name, "/groups/#{group.id}/plans") %></td>
-                        <!--<% group.users.each do |user| %>
-                            <td class="four wide"><%= user.name %></td>
-                        <% end %> -->
                         <td class="seven wide">
                             <% group.users.each do |user| %>
                                 <%= user.name %>さん

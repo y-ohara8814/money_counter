@@ -21,7 +21,6 @@ class GroupsController < ApplicationController
         end
         if @group.save
             flash[:notice] = "グループを作成しました"
-            # redirect_to("/groups/new")
             redirect_to("/users/#{current_user.id}")
         else
             flash.now[:alert] = "グループ作成に失敗しました"

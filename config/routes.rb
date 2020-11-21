@@ -23,9 +23,6 @@ Rails.application.routes.draw do
         post :edit, as: :edit_back, action: :edit_back
         post :edit_confirm, as: :edit_confirm, action: :edit_confirm
       end
-      # resources :usages do
-      #   post :create, as: :create, action: :create
-      # end
     end
   end
 

@@ -1,14 +1,11 @@
 class UsagesController < ApplicationController
 
         def new
-
-        @group = Group.find_by(id: params[:group_id])
-        @group_name = Group.find_by(id: params[:group_id]).name
-        # @plan = Plan.find_by(group_id: params[:group_id])
-        @plan = Plan.find_by(id: params[:plan_id])
-        @usages = Usage.where(plan_id: @plan.id)
-
-        @usage = Usage.new
+            @group = Group.find_by(id: params[:group_id])
+            @group_name = Group.find_by(id: params[:group_id]).name
+            @plan = Plan.find_by(id: params[:plan_id])
+            @usages = Usage.where(plan_id: @plan.id)
+            @usage = Usage.new
         end
 
         def create
